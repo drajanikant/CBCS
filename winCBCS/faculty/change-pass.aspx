@@ -16,12 +16,23 @@
     
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
+    <div class="col-md-offset-6">
+        <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Fail!</strong>
+            <label id="error_msg" runat="server">Registration Failed.</label>.
+        </div>
+        <div id="alert_success" runat="server" class="alert alert-success alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> Faculty registration successful.
+        </div>
+    </div>
     <div class="col-md-6"></div>
      <div class="panel panel-success col-md-6">
         <div class="panel-body">
              <div class="form-group">
-                <label for="email">Old Passwrd:</label>
-                <asp:TextBox ID="txtOldPass" runat="server" CssClass="form-control" TextMode="Password" ></asp:TextBox>
+                <label for="email">Current Password:</label>
+                <asp:TextBox ID="txtCurrentPass" runat="server" CssClass="form-control" ></asp:TextBox>
                </div>
             <div class="form-group">
                 <label for="email">New Password:</label>
@@ -33,7 +44,7 @@
                  <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Both passwords not match" ControlToCompare="txtNewPass" ControlToValidate="txtConfirmPass" CssClass="text-danger"></asp:CompareValidator>
                  </div>
            
-            <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-info" />
+            <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-info" OnClick="btnUpdate_Click" />
         </div>
 
     </div>
