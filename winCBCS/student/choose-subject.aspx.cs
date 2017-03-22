@@ -11,7 +11,20 @@ namespace winCBCS.student
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            CheckCookies();
+        }
 
+        private void CheckCookies()
+        {
+            HttpCookie ck = Request.Cookies["StudentCookie"];
+            if (ck != null)
+            {
+                student_name.InnerHtml = ck["studentName"].ToString();
+            }
+            else
+            {
+                Response.Redirect("../logout.aspx");
+            }
         }
     }
 }

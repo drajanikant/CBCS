@@ -33,7 +33,7 @@ namespace winCBCS.faculty
             {
                 faculty_name.InnerHtml = ck["facultyName"].ToString();
                 facultyId = ck["facultyId"].ToString();
-            }
+            }   
             else
             {
                 Response.Redirect("../logout.aspx");
