@@ -15,23 +15,23 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Subject <span class="caret"></span></a>
         <ul class="dropdown-menu">
             <li><a href="add_subject.aspx">Add Subject</a></li>
-            <li><a href="#">List Subject</a></li>
+            <li><a href="incharge_listsubject.aspx">List Subject</a></li>
         </ul>
     </li>
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Venue <span class="caret"></span></a>
         <ul class="dropdown-menu">
             <li><a href="add_venue.aspx">Add Venue</a></li>
-            <li><a href="#">List Venue</a></li>
+            <li><a href="incharge_listvenue.aspx">List Venue</a></li>
         </ul>
     </li>
     
   <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi...<label id="incharge_name" runat="server">Incharge Name</label> <span class="caret"></span></a>
         <ul class="dropdown-menu">
              <li><a href="incharge_profile.aspx">Profile</a></li>
             <li><a href="incharge_changepassword.aspx">Forgot Password</a></li>
-                         <li><a href="#">Logout</a></li>
+                         <li><a href="../logout.aspx">Logout</a></li>
 
 
            
@@ -40,6 +40,18 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
+
+    
+        <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">
+             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+             <strong>Fail!</strong> <label id="error_msg" runat="server">Venue registration Failed.</label>.
+         </div>
+         <div id="alert_success" runat="server" class="alert alert-success alert-dismissable fade in">
+             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+             <strong>Success!</strong>Venue registration successful.
+         </div>
+
+
 
      <div class="col-md-6">
     <div class="panel panel-default">
@@ -79,13 +91,13 @@
             <div class="col-md-2"></div>
                
             <div class="col-md-6">
-             <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="btn btn-default" />
+             <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="btn btn-default" OnClick="btnAdd_Click" />
             </div>
                <div class="form-group">
             <div class="col-md-2"></div>
                
            
-             <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-default" />
+             <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-default" OnClick="btnClear_Click" />
             </div>
              </div>   
            </div>

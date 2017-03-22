@@ -12,6 +12,20 @@ namespace winCBCS.incharge
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            CheckCookies();
+        }
+
+        private void CheckCookies()
+        {
+            HttpCookie ck = Request.Cookies["InchargeCookie"];
+            if (ck != null)
+            {
+                incharge_name.InnerHtml = ck["inchargeName"].ToString();
+            }
+            else
+            {
+                Response.Redirect("../logout.aspx");
+            }
         }
     }
 }

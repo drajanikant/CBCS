@@ -9,30 +9,30 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Course <span class="caret"></span></a>
         <ul class="dropdown-menu">
             <li><a href="add_course.aspx">Add Course</a></li>
-            <li><a href="#">List Course</a></li>
+            <li><a href="incharge_listcourse.aspx">List Course</a></li>
         </ul>
     </li>
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Subject <span class="caret"></span></a>
         <ul class="dropdown-menu">
             <li><a href="add_subject.aspx">Add Subject</a></li>
-            <li><a href="#">List Subject</a></li>
+            <li><a href="incharge_listsubject.aspx">List Subject</a></li>
         </ul>
     </li>
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Venue <span class="caret"></span></a>
         <ul class="dropdown-menu">
             <li><a href="add_venue.aspx">Add Venue</a></li>
-            <li><a href="#">List Venue</a></li>
+            <li><a href="incharge_listvenue.aspx">List Venue</a></li>
         </ul>
     </li>
     
   <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi...<label id="incharge_name" runat="server">Incharge Name</label> <span class="caret"></span></a>
         <ul class="dropdown-menu">
              <li><a href="incharge_profile.aspx">Profile</a></li>
             <li><a href="incharge_changepassword.aspx">Forgot Password</a></li>
-                         <li><a href="#">Logout</a></li>
+                         <li><a href="../logout.aspx">Logout</a></li>
 
 
            
@@ -43,10 +43,21 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
 
+    
+        <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">
+             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+             <strong>Fail!</strong> <label id="error_msg" runat="server">Password Not Changed.</label>.
+         </div>
+         <div id="alert_success" runat="server" class="alert alert-success alert-dismissable fade in">
+             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+             <strong>Success!</strong> Password Changed.
+         </div>
+
+
 
      <div class="col-md-6">
     <div class="panel panel-default">
-  <div class="panel-heading" >Add Cources</div>
+  <div class="panel-heading" >Forgot Password</div>
   <div class="panel-body">
     
        <div class="form-horizontal ">
@@ -66,7 +77,7 @@
 
               </asp:Label>
              <div class="col-md-6">
-                 <asp:TextBox ID="txtPassword" CssClass="col-md-2 form-control" runat="server"></asp:TextBox>
+                 <asp:TextBox ID="txtPassword" CssClass="col-md-2 form-control" runat="server" TextMode="Password"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger" runat="server" ErrorMessage="Enter Password !!!" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>
              </div>
              </div>
@@ -77,7 +88,7 @@
 
               </asp:Label>
              <div class="col-md-6">
-                 <asp:TextBox ID="txtConfirmpassword" CssClass="col-md-2 form-control" runat="server"></asp:TextBox>
+                 <asp:TextBox ID="txtConfirmpassword" CssClass="col-md-2 form-control" runat="server" TextMode="Password"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" runat="server" ErrorMessage="Enter Confirm Password !!!" ControlToValidate="txtConfirmpassword"></asp:RequiredFieldValidator>
              </div>
              </div>
@@ -90,7 +101,7 @@
             <div class="col-md-2"></div>
                
             <div class="col-md-6">
-             <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-default" />
+             <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-default" OnClick="btnSubmit_Click" />
             </div>
              </div>   
 
@@ -98,7 +109,7 @@
             <div class="col-md-2"></div>
                
            
-             <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-default" />
+             <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-default" OnClick="btnClear_Click" />
             </div>
             
 
