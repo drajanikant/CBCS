@@ -16,7 +16,19 @@
     </li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
-    <div class="panel panel-success col-md-6">
+        <div class="col-md-offset-6">
+        <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Fail!</strong>
+            <label id="error_msg" runat="server">Registration Failed.</label>.
+        </div>
+        <div id="alert_success" runat="server" class="alert alert-success alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> Faculty registration successful.
+        </div>
+    </div>
+    <div class="col-md-offset-6">
+    <div class=" panel panel-success ">
         <div class="panel-body">
              <div class="form-group">
                 <label for="email">Employee Id:</label>
@@ -45,11 +57,11 @@
                 <label for="email">Qualification :</label>
                  <asp:TextBox ID="txtQualification" runat="server" CssClass="form-control"></asp:TextBox>
                </div>
-            <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-info" />
+            <asp:Button ID="btnEdit" runat="server" Text="Edit" CssClass="btn btn-info" />
         </div>
 
     </div>
-
+        </div>
    
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
