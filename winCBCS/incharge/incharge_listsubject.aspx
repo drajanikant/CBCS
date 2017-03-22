@@ -66,6 +66,7 @@
                 <th>Course Name</th>
                 <th>Semester</th>
                 <th>Subject Name</th>
+                <th>Subject Type</th>
                 <th>Subject Code</th>
                 <th>Maximum Student</th>
                 <th>Minimum Student</th>
@@ -77,6 +78,7 @@
                 <td><%# Eval("course_name") %></td>
                 <td><%# Eval("subject_semester") %></td>
                 <td><%# Eval("subject_name") %></td>
+                <td><%# Eval("subject_type") %></td>
                 <td><%# Eval("subject_code") %></td>
                 <td><%# Eval("subject_maxstudent") %></td>
                 <td><%# Eval("subject_minstudent") %></td>
