@@ -40,7 +40,7 @@ namespace winCBCS.incharge
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
              MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["cbcs_connection"].ConnectionString);
-            MySqlCommand cmd = new MySqlCommand("update timetable_incharge set incharge_password='" + txtPassword.Text + "' where incharge_email='"+txtEmailincharge.Text+"'",con);
+             MySqlCommand cmd = new MySqlCommand("update timetable_incharge set incharge_password='" + txtPassword.Text + "' where (incharge_email='" + txtEmailincharge.Text + "' and incharge_password='"+txtCurrentPass.Text+"')", con);
             
             try{
                 con.Open();

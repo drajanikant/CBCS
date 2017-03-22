@@ -67,10 +67,22 @@
 
               </asp:Label>
              <div class="col-md-6">
-                 <asp:TextBox ID="txtEmailincharge" CssClass="col-md-2 form-control" runat="server"></asp:TextBox>
+                 <asp:TextBox ID="txtEmailincharge" CssClass="col-md-2 form-control" runat="server" ReadOnly="true"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="RequiredFieldyear" CssClass="text-danger" runat="server" ErrorMessage="Enter Email !!!" ControlToValidate="txtEmailincharge"></asp:RequiredFieldValidator>
              </div>
              </div>
+
+
+            <div class="form-group">
+              <asp:Label ID="Label4" runat="server" CssClass="col-md-4 control-label" Text="Current Password">
+
+              </asp:Label>
+             <div class="col-md-6">
+                 <asp:TextBox ID="txtCurrentPass" CssClass="col-md-2 form-control" runat="server" TextMode="Password"></asp:TextBox>
+                 <asp:RequiredFieldValidator ID="RequiredFieldcurrentpass" CssClass="text-danger" runat="server" ErrorMessage="Enter Password !!!" ControlToValidate="txtCurrentPass"></asp:RequiredFieldValidator>
+             </div>
+             </div>
+
 
            <div class="form-group">
               <asp:Label ID="Label1" runat="server" CssClass="col-md-4 control-label" Text="Password">
