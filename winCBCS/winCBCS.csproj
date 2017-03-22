@@ -80,6 +80,9 @@
     <Content Include="incharge\incharge-home.aspx" />
     <Content Include="incharge\incharge.Master" />
     <Content Include="incharge\incharge_changepassword.aspx" />
+    <Content Include="incharge\incharge_listcourse.aspx" />
+    <Content Include="incharge\incharge_listsubject.aspx" />
+    <Content Include="incharge\incharge_listvenue.aspx" />
     <Content Include="incharge\incharge_profile.aspx" />
     <Content Include="student\change-pass-student.aspx" />
     <Content Include="student\choose-subject.aspx" />
@@ -178,6 +181,24 @@
     </Compile>
     <Compile Include="incharge\incharge_changepassword.aspx.designer.cs">
       <DependentUpon>incharge_changepassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="incharge\incharge_listcourse.aspx.cs">
+      <DependentUpon>incharge_listcourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="incharge\incharge_listcourse.aspx.designer.cs">
+      <DependentUpon>incharge_listcourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="incharge\incharge_listsubject.aspx.cs">
+      <DependentUpon>incharge_listsubject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="incharge\incharge_listsubject.aspx.designer.cs">
+      <DependentUpon>incharge_listsubject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="incharge\incharge_listvenue.aspx.cs">
+      <DependentUpon>incharge_listvenue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="incharge\incharge_listvenue.aspx.designer.cs">
+      <DependentUpon>incharge_listvenue.aspx</DependentUpon>
     </Compile>
     <Compile Include="incharge\incharge_profile.aspx.cs">
       <DependentUpon>incharge_profile.aspx</DependentUpon>

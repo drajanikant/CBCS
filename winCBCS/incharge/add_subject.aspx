@@ -119,6 +119,22 @@
              </div>
              </div>
 
+           <div class="form-group">
+               <asp:Label ID="Label5" runat="server" CssClass="col-md-4 control-label" Text="Subject Type">
+               </asp:Label>
+             <div class="col-md-6">
+                 <asp:DropDownList ID="drpSubjectType" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="drpCourse_SelectedIndexChanged">
+                     <asp:ListItem Value="">-- Select --</asp:ListItem>
+                 
+                     <asp:ListItem Value="1">Core Subject</asp:ListItem>
+                     <asp:ListItem Value="2">Elective  Subject</asp:ListItem>
+                 
+                 </asp:DropDownList>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Select subject type!!!" ControlToValidate="drpSubjectType"></asp:RequiredFieldValidator>
+             </div>
+             </div>
+
+
        <div class="form-group">
            <asp:Label ID="Label2" runat="server" CssClass="col-md-4 control-label" Text="Subject Code">           </asp:Label>
              <div class="col-md-6">

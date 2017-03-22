@@ -157,7 +157,7 @@ namespace winCBCS.incharge
         {
             
             MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["cbcs_connection"].ConnectionString);
-            MySqlCommand cmd = new MySqlCommand("insert into timetable_subject (subject_name, subject_semester, subject_maxstudent, subject_minstudent, subject_credit, academic_year, course_name, lacture_credit, practical_credit, tutorial_credit,subject_code) values( ?subject_name, ?subject_semester, ?subject_maxstudent, ?subject_minstudent, ?subject_credit, ?academic_year, ?course_name, ?lacture_credit, ?practical_credit, ?tutorial_credit,?subject_code)", con);
+            MySqlCommand cmd = new MySqlCommand("insert into timetable_subject (subject_name, subject_semester, subject_maxstudent, subject_minstudent, subject_credit, academic_year, course_name, lacture_credit, practical_credit, tutorial_credit,subject_code,subject_type) values( ?subject_name, ?subject_semester, ?subject_maxstudent, ?subject_minstudent, ?subject_credit, ?academic_year, ?course_name, ?lacture_credit, ?practical_credit, ?tutorial_credit,?subject_code,?subject_type)", con);
             cmd.Parameters.AddWithValue("?subject_name", txtSubject.Text);
             cmd.Parameters.AddWithValue("?subject_semester", drpAcademicsemester.SelectedItem.ToString());
             cmd.Parameters.AddWithValue("?subject_maxstudent", txtMaxstudent.Text);
@@ -169,6 +169,7 @@ namespace winCBCS.incharge
             cmd.Parameters.AddWithValue("?practical_credit", txtpracticalcredit.Text);
             cmd.Parameters.AddWithValue("?tutorial_credit", txtTutorialcredit.Text);
             cmd.Parameters.AddWithValue("?subject_code", txtSubjectCode.Text);
+            cmd.Parameters.AddWithValue("?subject_type",drpSubjectType.SelectedItem.ToString());
 
             try
             {
