@@ -78,7 +78,7 @@
                     <asp:ListItem Value="0">Select Year</asp:ListItem>
                    
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="requirefieldcourse" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Academic Year !!!" ControlToValidate="drpAcademicyear" ></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="requirefieldcourse" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Academic Year !!!" ControlToValidate="drpAcademicyear" Display="Dynamic" ></asp:RequiredFieldValidator>
 
             </div>
             </div>
@@ -91,7 +91,7 @@
                      <asp:ListItem Value="0">Select Course Name</asp:ListItem>
                  
                  </asp:DropDownList>
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Course Name!!!" ControlToValidate="drpCourse"></asp:RequiredFieldValidator>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Course Name!!!" ControlToValidate="drpCourse" Display="Dynamic"></asp:RequiredFieldValidator>
              </div>
              </div>
 
@@ -105,7 +105,7 @@
                      <asp:ListItem Value="0">Select Semester</asp:ListItem>
                    
                  </asp:DropDownList>
-                 <asp:RequiredFieldValidator ID="RequiredFieldsem" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Academic Sem!!!" ControlToValidate="drpAcademicsemester"></asp:RequiredFieldValidator>
+                 <asp:RequiredFieldValidator ID="RequiredFieldsem" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Academic Sem!!!" ControlToValidate="drpAcademicsemester" Display="Dynamic"></asp:RequiredFieldValidator>
              </div>
              </div>
     
@@ -115,7 +115,7 @@
                </asp:Label>
              <div class="col-md-6">
                  <asp:TextBox ID="txtSubject" runat="server" CssClass="col-mod-4 form-control"></asp:TextBox>
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger"  runat="server" ErrorMessage="Enter Subject!!!" ControlToValidate="txtSubject"></asp:RequiredFieldValidator>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger"  runat="server" ErrorMessage="Enter Subject!!!" ControlToValidate="txtSubject" Display="Dynamic"></asp:RequiredFieldValidator>
              </div>
              </div>
 
@@ -130,7 +130,7 @@
                      <asp:ListItem Value="2">Elective  Subject</asp:ListItem>
                  
                  </asp:DropDownList>
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Select subject type!!!" ControlToValidate="drpSubjectType"></asp:RequiredFieldValidator>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Select subject type!!!" ControlToValidate="drpSubjectType" Display="Dynamic"></asp:RequiredFieldValidator>
              </div>
              </div>
 
@@ -139,7 +139,7 @@
            <asp:Label ID="Label2" runat="server" CssClass="col-md-4 control-label" Text="Subject Code">           </asp:Label>
              <div class="col-md-6">
                  <asp:TextBox ID="txtSubjectCode" CssClass="col-md-2 form-control" runat="server"></asp:TextBox>
-                 <asp:RequiredFieldValidator ID="RequiredFieldyear" CssClass="text-danger" runat="server" ErrorMessage="Enter Academic Year !!!" ControlToValidate="txtSubjectCode"></asp:RequiredFieldValidator>
+                 <asp:RequiredFieldValidator ID="RequiredFieldyear" CssClass="text-danger" runat="server" ErrorMessage="Enter Academic Year !!!" ControlToValidate="txtSubjectCode" Display="Dynamic"></asp:RequiredFieldValidator>
              </div>
              </div>
 
@@ -152,7 +152,7 @@
               </asp:Label>
              <div class="col-md-6">
                 <asp:TextBox ID="txtMaxstudent" CssClass="col-md-2 form-control" runat="server"></asp:TextBox>
-                 <asp:RequiredFieldValidator ID="RequiredFieldmax" CssClass="text-danger" runat="server" ErrorMessage="Enter maximum student !!!" ControlToValidate="txtMaxstudent"></asp:RequiredFieldValidator>
+                 <asp:RequiredFieldValidator ID="RequiredFieldmax" CssClass="text-danger" runat="server" ErrorMessage="Enter maximum student !!!" ControlToValidate="txtMaxstudent" Display="Dynamic"></asp:RequiredFieldValidator>
         
              </div>
              </div>
@@ -164,7 +164,7 @@
               </asp:Label>
              <div class="col-md-6">
                 <asp:TextBox ID="txtMinstudent" CssClass="col-md-2 form-control" runat="server" OnTextChanged="txtMinstudent_TextChanged"></asp:TextBox>
-                 <asp:RequiredFieldValidator ID="RequiredFieldmin" CssClass="text-danger" runat="server" ErrorMessage="Enter minimum student !!!" ControlToValidate="txtMinstudent"></asp:RequiredFieldValidator>
+                 <asp:RequiredFieldValidator ID="RequiredFieldmin" CssClass="text-danger" runat="server" ErrorMessage="Enter minimum student !!!" ControlToValidate="txtMinstudent" Display="Dynamic"></asp:RequiredFieldValidator>
         
              </div>
              </div>
@@ -201,7 +201,7 @@
                  <asp:CheckBox ID="cboxPractical" runat="server" Text="Practical" AutoPostBack="True" OnCheckedChanged="cboxPractical_CheckedChanged" />
                  <asp:CheckBox ID="cboxTutorial" runat="server" Text="Tutorial" AutoPostBack="True" OnCheckedChanged="cboxTutorial_CheckedChanged" />
 
-                 <asp:CustomValidator ID="CustomValidator2" runat="server" CssClass="text-danger" ErrorMessage="Required !!!" ClientValidationFunction = "ValidateCheckBox"></asp:CustomValidator><br />
+                 <asp:CustomValidator ID="CustomValidator2" runat="server" CssClass="text-danger" ErrorMessage="Required !!!" ClientValidationFunction = "ValidateCheckBox" Display="Dynamic"></asp:CustomValidator><br />
              </div>
              </div>
 
@@ -212,7 +212,7 @@
               </asp:Label>
              <div class="col-md-6">
                 <asp:TextBox ID="txtCredit" CssClass="col-md-2 form-control" runat="server"></asp:TextBox>
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator12" CssClass="text-danger" runat="server" ErrorMessage="Enter credit !!!" ControlToValidate="txtCredit"></asp:RequiredFieldValidator>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator12" CssClass="text-danger" runat="server" ErrorMessage="Enter credit !!!" ControlToValidate="txtCredit" Display="Dynamic"></asp:RequiredFieldValidator>
         
              </div>
              </div>
