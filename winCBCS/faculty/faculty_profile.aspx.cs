@@ -142,7 +142,7 @@ namespace winCBCS.faculty
                 txtQualification.Text = dr["faculty_qualification"].ToString();
 
             }
-            catch (Exception e)
+            catch (Exception )
             {
 
             }

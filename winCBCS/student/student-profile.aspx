@@ -12,7 +12,7 @@
         <ul class="dropdown-menu">
             <li><a href="edit-student.aspx">Profile</a></li>
             <li><a href="change-pass-student.aspx">Change Password</a></li>
-            <li><a href="#">Log Out</a></li>
+            <li><a href="../logout.aspx">Log Out</a></li>
         </ul>
     </li>
 </asp:Content>
@@ -24,15 +24,15 @@
   <div class="panel-body ">
     <div class="form-group">
         <asp:Label ID="Label1" runat="server" Text="Roll No"></asp:Label>
-        <asp:TextBox ID="txtRoll" runat="server" class="form-control" placeholder="Enter Your Roll No"></asp:TextBox>
+        <asp:TextBox ID="txtRoll" runat="server" CssClass="form-control" ></asp:TextBox>
     </div>
       <div class="form-group">
         <asp:Label ID="Label2" runat="server" Text="Name"></asp:Label>
-        <asp:TextBox ID="txtName" runat="server" class="form-control" placeholder="Enter Your Name"></asp:TextBox>
+        <asp:TextBox ID="txtName" runat="server" CssClass="form-control" ></asp:TextBox>
     </div>
     <div class="form-group">
         <asp:Label ID="Label3" runat="server" Text="Email"></asp:Label>
-        <asp:TextBox ID="txtEmail" runat="server" class="form-control" placeholder="Enter Your Email" ></asp:TextBox>
+        <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
    </div>
 </div>

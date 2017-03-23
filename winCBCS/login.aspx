@@ -17,7 +17,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
 
-    <div class="col-md-offset-6">
+    <div class="col-md-offset-8">
         <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <strong>Fail!</strong>

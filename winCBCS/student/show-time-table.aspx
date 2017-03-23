@@ -12,7 +12,7 @@
         <ul class="dropdown-menu">
             <li><a href="edit-student.aspx">Profile</a></li>
             <li><a href="change-pass-student.aspx">Change Password</a></li>
-            <li><a href="#">Log Out</a></li>
+            <li><a href="../logout.aspx">Log Out</a></li>
         </ul>
     </li>
 </asp:Content>

@@ -22,10 +22,6 @@ namespace winCBCS.incharge
             }
             CheckCookies();
         }
-
-
-
-
         private void CheckCookies()
         {
             HttpCookie ck = Request.Cookies["InchargeCookie"];

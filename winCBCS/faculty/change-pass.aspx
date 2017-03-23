@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="col-md-6"></div>
-     <div class="panel panel-success col-md-6">
+     <form id="form_changePass" runat="server" class="panel panel-success col-md-6">
         <div class="panel-body">
              <div class="form-group">
                 <label for="email">Current Password:</label>
@@ -47,7 +47,7 @@
             <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-info" OnClick="btnUpdate_Click" />
         </div>
 
-    </div>
+    </form>
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
