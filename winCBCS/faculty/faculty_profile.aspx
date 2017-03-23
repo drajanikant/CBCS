@@ -59,7 +59,7 @@
                 <label for="email">Qualification :</label>
                  <asp:TextBox ID="txtQualification" runat="server" CssClass="form-control" ReadOnly="True"></asp:TextBox>
                </div>
-            <asp:Button ID="btnEdit" runat="server" Text="Edit" CssClass="btn btn-info" />
+            <asp:Button ID="btnEdit" runat="server" Text="Edit" CssClass="btn btn-info" OnClick="btnEdit_Click" />
         </div>
 
     </div>
