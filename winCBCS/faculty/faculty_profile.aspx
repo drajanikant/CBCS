@@ -27,6 +27,7 @@
             <strong>Success!</strong> Faculty registration successful.
         </div>
     </div>
+    <form id="from2" runat="server">
     <div class="col-md-offset-6">
     <div class=" panel panel-success ">
         <div class="panel-body">
@@ -64,7 +65,7 @@
 
     </div>
         </div>
-   
+   </form>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
 </asp:Content>
