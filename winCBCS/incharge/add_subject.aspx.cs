@@ -119,6 +119,7 @@ namespace winCBCS.incharge
 
         protected void drpAcademicyear_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             try
             {
                 drpCourse.DataSource = DBConnection.GetDataTable("select distinct course_name from timetable_course where (course_academic_year='" + drpAcademicyear.SelectedItem.ToString() + "' )");
