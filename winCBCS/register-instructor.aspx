@@ -15,27 +15,35 @@
     </li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
+    <div class="col-md-offset-6">
+        <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Fail!</strong>
+            <label id="error_msg" runat="server">Registration Failed.</label>.
+        </div>
+        <div id="alert_success" runat="server" class="alert alert-success alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> Student registration successful.
+        </div>
+    </div>
     <div class="col-md-offset-6 panel panel-primary ">
         <div class="panel-heading" style="font-size: 20px; text-align: center;">
             Register Instructor
         </div>
         <div class="panel-body">
-            <div class="form-group">
-                <label for="txtEmpId">Employee Id :</label>
-                <asp:TextBox ID="txtEmpId" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
+            
             <div class="form-group">
                 <label for="txtName">Name :</label>
-                <asp:TextBox ID="txtName" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtName" runat="server" CssClass="form-control" required="required"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label for="txtEmail">Email :</label>
-                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" required="required"></asp:TextBox>
             </div>
 
             <div class="form-group">
                 <label for="email">Designation :</label>
-                <asp:DropDownList ID="drdDesignation" runat="server" CssClass="form-control">
+                <asp:DropDownList ID="drdDesignation" runat="server" CssClass="form-control" required="required">
                      <asp:ListItem></asp:ListItem> 
                     <asp:ListItem>H.O.D.</asp:ListItem>
                     <asp:ListItem>Professor</asp:ListItem>
@@ -47,13 +55,14 @@
             
             <div class="form-group">
                 <label for="txtNewPass">Password :</label>
-                <asp:TextBox ID="txtNewPass" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                <asp:TextBox ID="txtNewPass" runat="server" CssClass="form-control" TextMode="Password" required="required"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label for="txtNewPass">Confirm Password :</label>
-                <asp:TextBox ID="txtConfirm" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                <asp:TextBox ID="txtConfirm" runat="server" CssClass="form-control" TextMode="Password" required="required"></asp:TextBox>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ControlToCompare="txtNewPass" ControlToValidate="txtConfirm" CssClass="text-danger" Display="Dynamic"></asp:CompareValidator>
             </div>
-            <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-info" />
+            <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-info" OnClick="btnRegister_Click" />
         </div>
     </div>
 </asp:Content>

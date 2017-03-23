@@ -73,6 +73,18 @@ namespace winCBCS.incharge
         }
         protected void btnClear_Click(object sender, EventArgs e)
         {
+            txtCredit.Text = "";
+            txtLecturecredit.Text = "";
+            txtMaxstudent.Text = "";
+            txtMinstudent.Text = "";
+            txtpracticalcredit.Text = "";
+            txtSubject.Text = "";
+            txtSubjectCode.Text = "";
+            txtTutorialcredit.Text = "";
+            drpAcademicsemester.SelectedIndex = -1;
+            drpAcademicyear.SelectedIndex = -1;
+            drpCourse.SelectedIndex = -1;
+            drpSubjectType.SelectedIndex = -1;
         }
 
         protected void txtMinstudent_TextChanged(object sender, EventArgs e)
