@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentNavItems" runat="server">
         <li class=""><a href="student-home.aspx">Home</a></li>
-    <li class=""><a href="edit-student.aspx">Edit Profile</a></li>
+    <!--<li class=""><a href="edit-student.aspx">Edit Profile</a></li>!-->
     <li class=""><a href="choose-subject.aspx" >Choose Subject</a></li>
      <li class=""><a href="show-time-table.aspx" >Show Time Table</a></li>
   
@@ -12,7 +12,7 @@
         <ul class="dropdown-menu">
             <li><a href="student-profile.aspx">Profile</a></li>
             <li><a href="change-pass-student.aspx">Change Password</a></li>
-            <li><a href="#">Log Out</a></li>
+            <li><a href="../logout.aspx">Log Out</a></li>
         </ul>
     </li>
 </asp:Content>

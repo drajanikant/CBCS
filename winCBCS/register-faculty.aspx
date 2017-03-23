@@ -48,6 +48,7 @@
             <div class="form-group">
                 <label for="email">Designation :</label>
                 <asp:DropDownList ID="drdDesignation" runat="server" CssClass="form-control">
+                    <asp:ListItem></asp:ListItem> 
                     <asp:ListItem>H.O.D.</asp:ListItem>
                     <asp:ListItem>Professor</asp:ListItem>
                     <asp:ListItem>Associate Professor </asp:ListItem>
