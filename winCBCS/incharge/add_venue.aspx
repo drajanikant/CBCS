@@ -53,7 +53,7 @@
 
 
 
-     <div class="col-md-6">
+     <div class="col-md-offset-6">
     <div class="panel panel-default">
   <div class="panel-heading" >Add Venue</div>
   <div class="panel-body">
