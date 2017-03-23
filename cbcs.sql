@@ -16,6 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `faculty_choice`
+--
+
+DROP TABLE IF EXISTS `faculty_choice`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `faculty_choice` (
+  `choice_id` int(11) NOT NULL AUTO_INCREMENT,
+  `faculty_id` int(11) DEFAULT NULL,
+  `subject_id` int(11) DEFAULT NULL,
+  `priority` int(11) DEFAULT NULL,
+  `exprience` int(11) DEFAULT NULL,
+  PRIMARY KEY (`choice_id`),
+  KEY `fk_facultychoice_faculty_id_idx` (`faculty_id`),
+  KEY `fk_facultychoice_subject_id_idx` (`subject_id`),
+  CONSTRAINT `fk_facultychoice_faculty_id` FOREIGN KEY (`faculty_id`) REFERENCES `timetable_faculty` (`faculty_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_facultychoice_subject_id` FOREIGN KEY (`subject_id`) REFERENCES `timetable_subject` (`subject_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `faculty_choice`
+--
+
+LOCK TABLES `faculty_choice` WRITE;
+/*!40000 ALTER TABLE `faculty_choice` DISABLE KEYS */;
+/*!40000 ALTER TABLE `faculty_choice` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `timetable_choice`
 --
 
@@ -44,6 +74,31 @@ LOCK TABLES `timetable_choice` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `timetable_course`
+--
+
+DROP TABLE IF EXISTS `timetable_course`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `timetable_course` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `course_name` varchar(45) DEFAULT NULL,
+  `course_academic_year` varchar(45) DEFAULT NULL,
+  `course_academic_sem` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `timetable_course`
+--
+
+LOCK TABLES `timetable_course` WRITE;
+/*!40000 ALTER TABLE `timetable_course` DISABLE KEYS */;
+/*!40000 ALTER TABLE `timetable_course` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `timetable_faculty`
 --
 
@@ -56,14 +111,14 @@ CREATE TABLE `timetable_faculty` (
   `faculty_designation` varchar(45) DEFAULT NULL,
   `faculty_experience` varchar(45) DEFAULT NULL,
   `faculty_qualification` varchar(45) DEFAULT NULL,
-  `faculty_subselection` varchar(45) DEFAULT NULL,
   `faculty_workinghour` int(11) DEFAULT NULL,
   `faculty_email` varchar(45) DEFAULT NULL,
   `faculty_password` varchar(45) DEFAULT NULL,
+  `faculty_name` varchar(145) DEFAULT NULL,
   PRIMARY KEY (`faculty_id`),
   UNIQUE KEY `faculty_empid_UNIQUE` (`faculty_empid`),
   UNIQUE KEY `faculty_email_UNIQUE` (`faculty_email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,6 +127,7 @@ CREATE TABLE `timetable_faculty` (
 
 LOCK TABLES `timetable_faculty` WRITE;
 /*!40000 ALTER TABLE `timetable_faculty` DISABLE KEYS */;
+INSERT INTO `timetable_faculty` VALUES (1,'10','asch','4','dfh',16,'r@gmail.com','r','Ram'),(2,'45148','H.O.D.','15','Dr.',10,'vishal@gmail.com','12','Vishal');
 /*!40000 ALTER TABLE `timetable_faculty` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +146,7 @@ CREATE TABLE `timetable_incharge` (
   `incharge_password` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`incharge_id`),
   UNIQUE KEY `incharge_email_UNIQUE` (`incharge_email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,6 +155,7 @@ CREATE TABLE `timetable_incharge` (
 
 LOCK TABLES `timetable_incharge` WRITE;
 /*!40000 ALTER TABLE `timetable_incharge` DISABLE KEYS */;
+INSERT INTO `timetable_incharge` VALUES (1,'r','r@gmail.com','senior','r');
 /*!40000 ALTER TABLE `timetable_incharge` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,7 +179,7 @@ CREATE TABLE `timetable_student` (
   PRIMARY KEY (`student_id`),
   UNIQUE KEY `student_email_UNIQUE` (`student_email`),
   UNIQUE KEY `student_rollno_UNIQUE` (`student_rollno`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,6 +188,7 @@ CREATE TABLE `timetable_student` (
 
 LOCK TABLES `timetable_student` WRITE;
 /*!40000 ALTER TABLE `timetable_student` DISABLE KEYS */;
+INSERT INTO `timetable_student` VALUES (1,'raa',1454007,'raa@gmail.com','raa',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `timetable_student` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,13 +203,19 @@ CREATE TABLE `timetable_subject` (
   `subject_id` int(11) NOT NULL AUTO_INCREMENT,
   `subject_name` varchar(45) DEFAULT NULL,
   `subject_semester` varchar(45) DEFAULT NULL,
-  `subject_type` varchar(45) DEFAULT NULL,
   `subject_maxstudent` int(11) DEFAULT NULL,
-  `subject_minstudentl` int(11) DEFAULT NULL,
+  `subject_minstudent` int(11) DEFAULT NULL,
   `subject_credit` int(11) DEFAULT NULL,
-  `subject_creditdivision` int(11) DEFAULT NULL,
-  PRIMARY KEY (`subject_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `academic_year` varchar(45) DEFAULT NULL,
+  `course_name` varchar(45) DEFAULT NULL,
+  `lacture_credit` int(11) DEFAULT '0',
+  `practical_credit` int(11) DEFAULT '0',
+  `tutorial_credit` int(11) DEFAULT '0',
+  `subject_code` varchar(45) DEFAULT NULL,
+  `subject_type` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`subject_id`),
+  UNIQUE KEY `subject_code_UNIQUE` (`subject_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -221,4 +285,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-17 10:23:20
+-- Dump completed on 2017-03-23  9:57:23
