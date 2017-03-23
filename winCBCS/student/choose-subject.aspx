@@ -19,7 +19,15 @@
     </li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
-   
+   <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Fail!</strong>
+        <label id="error_msg" runat="server">Subject registration Failed.</label>.
+    </div>
+    <div id="alert_success" runat="server" class="alert alert-success alert-dismissable fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> Subject registration successful.
+    </div>
     <div class="col-md-6">
         <div class="panel panel-default " >
   <div class="panel-heading ">Choose Subject</div>
@@ -29,7 +37,7 @@
          <asp:Label ID="lblCredits" runat="server" Text="Credits Earned :" align="left"></asp:Label>
             </div>
         <asp:Label ID="Email" runat="server" Text="Acadamic Year"></asp:Label>
-        <asp:DropDownList ID="drdYear" class="form-control" runat="server" placeholder="select any one" required="required">                      
+        <asp:DropDownList ID="drdYear" class="form-control" runat="server" placeholder="select any one" required="required" OnSelectedIndexChanged="drdYear_SelectedIndexChanged">                      
                      </asp:DropDownList>
     </div>
       <div class="form-group">
