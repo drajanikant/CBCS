@@ -41,7 +41,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
-
+    
 
     <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -55,9 +55,9 @@
 
 
 
-    <div class="col-md-6">
+    <div class="col-md-offset-6 ">
         <div class="panel panel-default">
-            <div class="panel-heading">Add Cources</div>
+            <div class="panel-heading" style="font-size: 20px; text-align: center;">Add Cources</div>
             <div class="panel-body">
 
                 <div id="add_course" runat="server" class="form-horizontal ">

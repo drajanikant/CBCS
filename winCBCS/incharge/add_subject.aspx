@@ -65,9 +65,9 @@
         }
     </script>
 
-   <div class="col-md-6">
+   <div class="col-md-6 ">
     <div class="panel panel-default">
-  <div class="panel-heading" >Add Subject</div>
+  <div class="panel-heading" style="font-size: 20px; text-align: center;">Add Subject</div>
   <div class="panel-body">
     
        <div class="form-horizontal ">
@@ -123,7 +123,7 @@
                <asp:Label ID="Label5" runat="server" CssClass="col-md-4 control-label" Text="Subject Type">
                </asp:Label>
              <div class="col-md-6">
-                 <asp:DropDownList ID="drpSubjectType" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="drpCourse_SelectedIndexChanged">
+                 <asp:DropDownList ID="drpSubjectType" runat="server" CssClass="form-control" AutoPostBack="True" >
                      <asp:ListItem Value="">-- Select --</asp:ListItem>
                  
                      <asp:ListItem Value="1">Core Subject</asp:ListItem>

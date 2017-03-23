@@ -55,7 +55,7 @@
     </div>
 
        
-    <div class="col-md-6">
+    <div class="col-md-12">
         <asp:DataList ID="data_cources" runat="server" CssClass="table table-striped" OnItemCommand="data_cources_ItemCommand" OnSelectedIndexChanged="data_cources_SelectedIndexChanged">
             <HeaderTemplate>
 
