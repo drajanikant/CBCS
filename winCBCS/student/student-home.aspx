@@ -11,7 +11,7 @@
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Hi...<label id="student_name" runat="server">Student Name</label><span class="caret"></span></a>
         <ul class="dropdown-menu">
-            <li><a href="edit-student.aspx">Profile</a></li>
+            <li><a href="student-profile.aspx">Profile</a></li>
             <li><a href="change-pass-student.aspx">Change Password</a></li>
             <li><a href="../logout.aspx">Log Out</a></li>
         </ul>
