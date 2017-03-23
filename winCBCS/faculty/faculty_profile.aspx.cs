@@ -50,6 +50,7 @@ namespace winCBCS.faculty
                 drdDesignation.Enabled = true;
                 txtExperiance.ReadOnly = false;
                 txtQualification.ReadOnly = false;
+                //txtName.ReadOnly = false;
                 btnEdit.Text = "Update";
             }
             else if (btnEdit.Text.Equals("Update"))
@@ -59,6 +60,8 @@ namespace winCBCS.faculty
                 MySqlCommand cmd = new MySqlCommand("update timetable_faculty set faculty_empid=?faculty_empid,faculty_email=?faculty_email, faculty_designation=?faculty_designation, faculty_experience=?faculty_experience, faculty_qualification=?faculty_qualification where (faculty_id=?faculty_id)", con);
 
                 cmd.Parameters.AddWithValue("?faculty_empid", txtEmployeeId.Text);
+
+                
                 cmd.Parameters.AddWithValue("?faculty_email", txtEmail.Text);
                 cmd.Parameters.AddWithValue("?faculty_designation", drdDesignation.Text);
                 cmd.Parameters.AddWithValue("?faculty_experience", txtExperiance.Text);
@@ -123,7 +126,7 @@ namespace winCBCS.faculty
                 drdDesignation.Enabled = false;
                 txtExperiance.ReadOnly = true;
                 txtQualification.ReadOnly = true;
-
+               
             }
         }
         private void LoadData()
@@ -132,7 +135,8 @@ namespace winCBCS.faculty
             {
                 DataRow dr = DBConnection.GetDataRow("select * from timetable_faculty where (faculty_id='" + facultyId + "')");
                 txtEmployeeId.Text = dr["faculty_empid"].ToString();
-                txtEmail.Text = dr["faculty_name"].ToString();
+                txtEmail.Text = dr["faculty_email"].ToString();
+               
                 drdDesignation.SelectedValue = dr["faculty_designation"].ToString();
                 txtExperiance.Text = dr["faculty_experience"].ToString();
                 txtQualification.Text = dr["faculty_qualification"].ToString();

@@ -184,21 +184,30 @@
     </Compile>
     <Compile Include="incharge\incharge_listcourse.aspx.cs">
       <DependentUpon>incharge_listcourse.aspx</DependentUpon>
+<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
+=======
+>>>>>>> 44259037f477bb2de0afd3b0ad9cc90fa416b585
     </Compile>
     <Compile Include="incharge\incharge_listcourse.aspx.designer.cs">
       <DependentUpon>incharge_listcourse.aspx</DependentUpon>
     </Compile>
     <Compile Include="incharge\incharge_listsubject.aspx.cs">
       <DependentUpon>incharge_listsubject.aspx</DependentUpon>
+<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
+=======
+>>>>>>> 44259037f477bb2de0afd3b0ad9cc90fa416b585
     </Compile>
     <Compile Include="incharge\incharge_listsubject.aspx.designer.cs">
       <DependentUpon>incharge_listsubject.aspx</DependentUpon>
     </Compile>
     <Compile Include="incharge\incharge_listvenue.aspx.cs">
       <DependentUpon>incharge_listvenue.aspx</DependentUpon>
+<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
+=======
+>>>>>>> 44259037f477bb2de0afd3b0ad9cc90fa416b585
     </Compile>
     <Compile Include="incharge\incharge_listvenue.aspx.designer.cs">
       <DependentUpon>incharge_listvenue.aspx</DependentUpon>
