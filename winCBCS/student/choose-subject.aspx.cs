@@ -57,7 +57,7 @@ namespace winCBCS.student
         {
             try
             {
-                drdSem.DataSource = DBConnection.GetDataTable("select distinct course_academic_sem from timetable_course");
+                drdSem.DataSource = DBConnection.GetDataTable("select  course_academic_sem from timetable_course where course_academic_year='" + drdYear.SelectedItem.ToString() + "'");
                 drdSem.DataTextField = "course_academic_sem";
                 drdSem.DataValueField = "course_academic_sem";
                 drdSem.DataBind();

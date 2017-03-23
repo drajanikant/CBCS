@@ -32,17 +32,17 @@
         <div class="panel-body">
              <div class="form-group">
                 <label for="email">Employee Id:</label>
-                <asp:TextBox ID="txtEmployeeId" runat="server" CssClass="form-control" ></asp:TextBox>
+                <asp:TextBox ID="txtEmployeeId" runat="server" CssClass="form-control" ReadOnly="True" ></asp:TextBox>
                </div>
 
            
             <div class="form-group">
                 <label for="email">Employee Email:</label>
-                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" ></asp:TextBox>
+                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" ReadOnly="True" ></asp:TextBox>
                </div>
             <div class="form-group">
                 <label for="email">Designation :</label>
-                <asp:DropDownList ID="drdDesignation" runat="server" CssClass="form-control" >
+                <asp:DropDownList ID="drdDesignation" runat="server" CssClass="form-control" Enabled="False" >
                       <asp:ListItem></asp:ListItem> 
                     <asp:ListItem>H.O.D.</asp:ListItem>
                     <asp:ListItem>Professor</asp:ListItem>
@@ -53,11 +53,11 @@
                  </div>
             <div class="form-group">
                 <label for="email">Experiance :</label>
-                <asp:TextBox ID="txtExperiance" runat="server" CssClass="form-control" ></asp:TextBox>
+                <asp:TextBox ID="txtExperiance" runat="server" CssClass="form-control" ReadOnly="True" ></asp:TextBox>
                </div>
              <div class="form-group">
                 <label for="email">Qualification :</label>
-                 <asp:TextBox ID="txtQualification" runat="server" CssClass="form-control"></asp:TextBox>
+                 <asp:TextBox ID="txtQualification" runat="server" CssClass="form-control" ReadOnly="True"></asp:TextBox>
                </div>
             <asp:Button ID="btnEdit" runat="server" Text="Edit" CssClass="btn btn-info" />
         </div>

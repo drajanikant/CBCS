@@ -37,12 +37,12 @@
          <asp:Label ID="lblCredits" runat="server" Text="Credits Earned :" align="left"></asp:Label>
             </div>
         <asp:Label ID="Email" runat="server" Text="Acadamic Year"></asp:Label>
-        <asp:DropDownList ID="drdYear" class="form-control" runat="server" placeholder="select any one" required="required" OnSelectedIndexChanged="drdYear_SelectedIndexChanged">                      
+        <asp:DropDownList ID="drdYear" class="form-control" runat="server" placeholder="select any one" required="required" OnSelectedIndexChanged="drdYear_SelectedIndexChanged" AutoPostBack="True">                      
                      </asp:DropDownList>
     </div>
       <div class="form-group">
         <asp:Label ID="Label2" runat="server" Text="Semester"></asp:Label>
-        <asp:DropDownList ID="drdSem" class="form-control" runat="server" placeholder="select any one" required="required">               
+        <asp:DropDownList ID="drdSem" class="form-control" runat="server" placeholder="select any one" required="required" AutoPostBack="True">               
         </asp:DropDownList>
           </div>
     <div class="form-group">
