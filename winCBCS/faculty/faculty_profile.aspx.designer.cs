@@ -76,6 +76,24 @@ namespace winCBCS.faculty {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
+        /// RequiredFieldEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldEmail;
+        
+        /// <summary>
+        /// RegularExpression control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpression;
+        
+        /// <summary>
         /// drdDesignation control.
         /// </summary>
         /// <remarks>
@@ -94,6 +112,15 @@ namespace winCBCS.faculty {
         protected global::System.Web.UI.WebControls.TextBox txtExperiance;
         
         /// <summary>
+        /// RequiredFieldExperiance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldExperiance;
+        
+        /// <summary>
         /// txtQualification control.
         /// </summary>
         /// <remarks>
@@ -101,6 +128,15 @@ namespace winCBCS.faculty {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQualification;
+        
+        /// <summary>
+        /// RequiredFieldQualification control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldQualification;
         
         /// <summary>
         /// btnEdit control.

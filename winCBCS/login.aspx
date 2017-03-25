@@ -33,19 +33,28 @@
             <div class="form-group">
                 <label for="txtEmail">Email :</label>
                 <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" ></asp:TextBox>
+                 <asp:RequiredFieldValidator ID="RequiredFieldEmail" CssClass="text-danger"  runat="server" ErrorMessage="Enter Email !!!" ControlToValidate="txtEmail" Display="Dynamic"></asp:RequiredFieldValidator>
+
             </div>
             <div class="form-group">
                 <label for="txtNewPass">Password:</label>
                 <asp:TextBox ID="txtNewPass" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                 <asp:RequiredFieldValidator ID="RequiredFieldPass" CssClass="text-danger"  runat="server" ErrorMessage="Enter Password !!!" ControlToValidate="txtNewPass" Display="Dynamic"></asp:RequiredFieldValidator>
+
+
             </div>
             <div class="form-group">
                 <label for="drdRole">Role :</label>
                 <asp:DropDownList ID="drdRole" runat="server" CssClass="form-control" >
-                    <asp:ListItem></asp:ListItem>
+                    <asp:ListItem Value=""></asp:ListItem>
                     <asp:ListItem>Student</asp:ListItem>
                     <asp:ListItem>Faculty</asp:ListItem>
                     <asp:ListItem>Incharge</asp:ListItem>
                 </asp:DropDownList>
+            
+                 <asp:RequiredFieldValidator ID="RequiredFieldRole" CssClass="text-danger"  runat="server" InitialValue="" ErrorMessage="Enter Role !!!" ControlToValidate="drdRole" Display="Dynamic"></asp:RequiredFieldValidator>
+
+            
             </div>
             <div class="form-check">
 

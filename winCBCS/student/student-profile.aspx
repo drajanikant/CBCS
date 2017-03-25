@@ -35,14 +35,20 @@
     <div class="form-group">
         <asp:Label ID="Label1" runat="server" Text="Roll No"></asp:Label>
         <asp:TextBox ID="txtRoll" runat="server" CssClass="form-control" ReadOnly="True" ></asp:TextBox>
+         <asp:RequiredFieldValidator ID="RequiredFieldRoll" CssClass="text-danger"  runat="server" ErrorMessage="Enter Roll Number !!!" ControlToValidate="txtRoll" Display="Dynamic"></asp:RequiredFieldValidator>
+
     </div>
       <div class="form-group">
         <asp:Label ID="Label2" runat="server" Text="Name"></asp:Label>
         <asp:TextBox ID="txtName" runat="server" CssClass="form-control" ReadOnly="True" ></asp:TextBox>
+           <asp:RequiredFieldValidator ID="RequiredFieldName" CssClass="text-danger"  runat="server" ErrorMessage="Enter Name !!!" ControlToValidate="txtName" Display="Dynamic"></asp:RequiredFieldValidator>
+
     </div>
     <div class="form-group">
         <asp:Label ID="Label3" runat="server" Text="Email"></asp:Label>
         <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" ReadOnly="True"></asp:TextBox>
+          <asp:RequiredFieldValidator ID="RequiredFieldEmail" CssClass="text-danger"  runat="server" ErrorMessage="Enter Email !!!" ControlToValidate="txtEmail" Display="Dynamic"></asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator ID="RegularExp" CssClass="text-danger" runat="server" ErrorMessage="Enter Valid Email" ControlToValidate="txtEmail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
     </div>
       <asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click" CssClass="btn btn-info" />
    </div>

@@ -204,5 +204,16 @@ namespace winCBCS.faculty
             }
             LoadList();
         }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSubExperiance.Text = "";
+            drdAcademicYear.SelectedIndex = -1;
+            drdCourseName.SelectedIndex = -1;
+            drdSemester.SelectedIndex = -1;
+            drdProirity.SelectedIndex = -1;
+            drdSubjetName.SelectedIndex = -1;
+
+        }
     }
 }

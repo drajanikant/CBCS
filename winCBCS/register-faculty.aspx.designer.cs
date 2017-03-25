@@ -49,6 +49,15 @@ namespace winCBCS {
         protected global::System.Web.UI.WebControls.TextBox txtEmpId;
         
         /// <summary>
+        /// RequiredFieldEmpId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldEmpId;
+        
+        /// <summary>
         /// txtName control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace winCBCS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtName;
+        
+        /// <summary>
+        /// RequiredFieldName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldName;
         
         /// <summary>
         /// txtEmail control.
@@ -67,6 +85,24 @@ namespace winCBCS {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
+        /// RequiredFieldemail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldemail;
+        
+        /// <summary>
+        /// RegularExpressionEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionEmail;
+        
+        /// <summary>
         /// drdDesignation control.
         /// </summary>
         /// <remarks>
@@ -74,6 +110,15 @@ namespace winCBCS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drdDesignation;
+        
+        /// <summary>
+        /// RequiredFieldDesignation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldDesignation;
         
         /// <summary>
         /// txtExperiance control.
@@ -85,6 +130,24 @@ namespace winCBCS {
         protected global::System.Web.UI.WebControls.TextBox txtExperiance;
         
         /// <summary>
+        /// RequiredFieldexp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldexp;
+        
+        /// <summary>
+        /// RangeValidatorExp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidatorExp;
+        
+        /// <summary>
         /// txtQualification control.
         /// </summary>
         /// <remarks>
@@ -92,6 +155,15 @@ namespace winCBCS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQualification;
+        
+        /// <summary>
+        /// RequiredFieldQualification control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldQualification;
         
         /// <summary>
         /// txtNewPass control.
@@ -103,6 +175,15 @@ namespace winCBCS {
         protected global::System.Web.UI.WebControls.TextBox txtNewPass;
         
         /// <summary>
+        /// RequiredFieldNewPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldNewPass;
+        
+        /// <summary>
         /// txtConfirm control.
         /// </summary>
         /// <remarks>
@@ -110,6 +191,24 @@ namespace winCBCS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtConfirm;
+        
+        /// <summary>
+        /// RequiredFieldCPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldCPass;
+        
+        /// <summary>
+        /// CompareValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
         
         /// <summary>
         /// btnRegister control.

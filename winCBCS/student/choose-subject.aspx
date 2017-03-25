@@ -37,16 +37,27 @@
                     <asp:Label ID="Email" runat="server" Text="Acadamic Year"></asp:Label>
                     <asp:DropDownList ID="drdYear" class="form-control" runat="server" placeholder="select any one" required="required" OnSelectedIndexChanged="drdYear_SelectedIndexChanged" AutoPostBack="True">
                     </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldAcademicYear" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Academic Year !!!" ControlToValidate="drdYear" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                
+                
                 </div>
                 <div class="form-group">
                     <asp:Label ID="Label1" runat="server" Text="Course Name"></asp:Label>
                     <asp:DropDownList ID="drdCourse" class="form-control" runat="server" placeholder="select any one" required="required" AutoPostBack="True" OnSelectedIndexChanged="drdCourse_SelectedIndexChanged">
-                    </asp:DropDownList>
+                   
+                     </asp:DropDownList>
+
+                      <asp:RequiredFieldValidator ID="RequiredFieldCourse" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Course Name !!!" ControlToValidate="drdCourse" Display="Dynamic"></asp:RequiredFieldValidator>
+
                 </div>
                 <div class="form-group">
                     <asp:Label ID="Label2" runat="server" Text="Semester"></asp:Label>
                     <asp:DropDownList ID="drdSem" class="form-control" runat="server" placeholder="select any one" required="required" AutoPostBack="True" OnSelectedIndexChanged="drdSem_SelectedIndexChanged">
                     </asp:DropDownList>
+                      <asp:RequiredFieldValidator ID="RequiredFieldSem" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Semester !!!" ControlToValidate="drdSem" Display="Dynamic"></asp:RequiredFieldValidator>
+
+
                 </div>
                 <div class="form-group">
                     <asp:Label runat="server" Text="Core"></asp:Label>

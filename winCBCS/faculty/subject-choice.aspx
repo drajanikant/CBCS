@@ -35,37 +35,57 @@
                         <div class="form-group">
                             <label for="email">Academic Year:</label>
                             <asp:DropDownList ID="drdAcademicYear" runat="server" CssClass="form-control"  AutoPostBack="True" OnSelectedIndexChanged="drdAcademicYear_SelectedIndexChanged"></asp:DropDownList>
-                        </div>
+                       <asp:RequiredFieldValidator ID="RequiredFieldAcademicYear" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Academic Year !!!" ControlToValidate="drdAcademicYear" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                             </div>
                         <div class="form-group">
                             <label for="email">Course Name:</label>
                             <asp:DropDownList ID="drdCourseName" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="drdCourseName_SelectedIndexChanged"></asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="RequiredFieldCourseName" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Course Name !!!" ControlToValidate="drdCourseName" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                        
                         </div>
                         <div class="form-group">
                             <label for="email">Semester:</label>
                             <asp:DropDownList ID="drdSemester" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="drdSemester_SelectedIndexChanged"></asp:DropDownList>
-                        </div>
+                       
+                               <asp:RequiredFieldValidator ID="RequiredFieldSem" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Semester !!!" ControlToValidate="drdSemester" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                            
+                             </div>
                         <div class="form-group">
                             <label for="email">Subject Name:</label>
                             <asp:DropDownList ID="drdSubjetName" runat="server" CssClass="form-control" ></asp:DropDownList>
-                        </div>
+                       <asp:RequiredFieldValidator ID="RequiredFieldSubname" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Subject !!!" ControlToValidate="drdSubjetName" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                            
+                             </div>
                         <div class="form-group">
                             <label for="email">Priority:</label>
                             <asp:DropDownList ID="drdProirity" runat="server" CssClass="form-control">
-                                <asp:ListItem></asp:ListItem>
+                                <asp:ListItem Value="0"></asp:ListItem>
                                 <asp:ListItem>1</asp:ListItem>
                                 <asp:ListItem>2</asp:ListItem>
                                 <asp:ListItem>3</asp:ListItem>
                                 <asp:ListItem>4</asp:ListItem>
                                 <asp:ListItem>5</asp:ListItem>
                             </asp:DropDownList>
+                          <asp:RequiredFieldValidator ID="RequiredFieldPriority" CssClass="text-danger" InitialValue="0" runat="server" ErrorMessage="Enter Subject Priority !!!" ControlToValidate="drdProirity" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                        
                         </div>
                         <div class="form-group">
                             <label for="email">Experiance :</label>
                             <asp:TextBox ID="txtSubExperiance" runat="server" CssClass="form-control" ></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldExp" CssClass="text-danger"  runat="server" ErrorMessage="Enter Experiance !!!" ControlToValidate="txtSubExperiance" Display="Dynamic"></asp:RequiredFieldValidator>
+
+
                         </div>
                         <asp:Button ID="btnAddSubject" runat="server" Text="Add Subject" CssClass="btn btn-info" OnClick="btnAddSubject_Click" />
+                       
+                        <asp:Button ID="btnClear" runat="server" CssClass="btn btn-info" OnClick="btnClear_Click" Text="Clear" />
                     </div>
-
+                     
                 </div>
             </asp:Panel>
 

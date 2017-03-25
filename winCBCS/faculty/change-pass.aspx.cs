@@ -86,5 +86,10 @@ namespace winCBCS.faculty
             
             }
         }
+
+        protected void txtCurrentPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -36,14 +36,25 @@
     <div class="form-group">
         <asp:Label ID="currentPassword" runat="server" Text="Current Password"></asp:Label>
         <asp:TextBox ID="txtCurrentPass" runat="server" class="form-control" placeholder="Enter Your Email"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldCurrentPass" CssClass="text-danger"  runat="server" ErrorMessage="Enter Current Password !!!" ControlToValidate="txtCurrentPass" Display="Dynamic"></asp:RequiredFieldValidator>
+
+    
     </div>
       <div class="form-group">
         <asp:Label ID="Label2" runat="server" Text="New Password"></asp:Label>
         <asp:TextBox ID="txtNewPass" runat="server" class="form-control" placeholder="Enter Your Password"></asp:TextBox>
-    </div>
+    
+       <asp:RequiredFieldValidator ID="RequiredFieldNewPass" CssClass="text-danger"  runat="server" ErrorMessage="Enter New Password !!!" ControlToValidate="txtNewPass" Display="Dynamic"></asp:RequiredFieldValidator>
+
+      
+      </div>
     <div class="form-group">
         <asp:Label ID="Label3" runat="server" Text="Confirm Password"></asp:Label>
         <asp:TextBox ID="txtCnfPass" runat="server" class="form-control" placeholder="Enter Your Password" ></asp:TextBox>
+    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Both passwords not match" ControlToCompare="txtNewPass" ControlToValidate="txtCnfPass" CssClass="text-danger"></asp:CompareValidator>
+     <asp:RequiredFieldValidator ID="RequiredFieldCPass" CssClass="text-danger"  runat="server" ErrorMessage="Enter Confirm Password !!!" ControlToValidate="txtCnfPass" Display="Dynamic"></asp:RequiredFieldValidator>
+
+    
     </div>
       <div>
       <asp:Button ID="btnUpdate" Text="Update" runat="server" OnClick="btnUpdate_Click" />

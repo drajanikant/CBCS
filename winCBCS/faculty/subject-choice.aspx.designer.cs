@@ -85,6 +85,15 @@ namespace winCBCS.faculty {
         protected global::System.Web.UI.WebControls.DropDownList drdAcademicYear;
         
         /// <summary>
+        /// RequiredFieldAcademicYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldAcademicYear;
+        
+        /// <summary>
         /// drdCourseName control.
         /// </summary>
         /// <remarks>
@@ -92,6 +101,15 @@ namespace winCBCS.faculty {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drdCourseName;
+        
+        /// <summary>
+        /// RequiredFieldCourseName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldCourseName;
         
         /// <summary>
         /// drdSemester control.
@@ -103,6 +121,15 @@ namespace winCBCS.faculty {
         protected global::System.Web.UI.WebControls.DropDownList drdSemester;
         
         /// <summary>
+        /// RequiredFieldSem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldSem;
+        
+        /// <summary>
         /// drdSubjetName control.
         /// </summary>
         /// <remarks>
@@ -110,6 +137,15 @@ namespace winCBCS.faculty {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drdSubjetName;
+        
+        /// <summary>
+        /// RequiredFieldSubname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldSubname;
         
         /// <summary>
         /// drdProirity control.
@@ -121,6 +157,15 @@ namespace winCBCS.faculty {
         protected global::System.Web.UI.WebControls.DropDownList drdProirity;
         
         /// <summary>
+        /// RequiredFieldPriority control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldPriority;
+        
+        /// <summary>
         /// txtSubExperiance control.
         /// </summary>
         /// <remarks>
@@ -130,6 +175,15 @@ namespace winCBCS.faculty {
         protected global::System.Web.UI.WebControls.TextBox txtSubExperiance;
         
         /// <summary>
+        /// RequiredFieldExp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldExp;
+        
+        /// <summary>
         /// btnAddSubject control.
         /// </summary>
         /// <remarks>
@@ -137,6 +191,15 @@ namespace winCBCS.faculty {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddSubject;
+        
+        /// <summary>
+        /// btnClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear;
         
         /// <summary>
         /// panel_list control.

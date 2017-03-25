@@ -40,6 +40,15 @@ namespace winCBCS {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
+        /// RequiredFieldEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldEmail;
+        
+        /// <summary>
         /// txtNewPass control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace winCBCS {
         protected global::System.Web.UI.WebControls.TextBox txtNewPass;
         
         /// <summary>
+        /// RequiredFieldPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldPass;
+        
+        /// <summary>
         /// drdRole control.
         /// </summary>
         /// <remarks>
@@ -56,6 +74,15 @@ namespace winCBCS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drdRole;
+        
+        /// <summary>
+        /// RequiredFieldRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldRole;
         
         /// <summary>
         /// chbRemember control.
