@@ -5,7 +5,7 @@
         <li class=""><a href="student-home.aspx">Home</a></li>
     <!--<li class=""><a href="edit-student.aspx">Edit Profile</a></li>!-->
     <li class=""><a href="choose-subject.aspx" >Choose Subject</a></li>
-     <li class=""><a href="show-time-table.aspx" >Show Time Table</a></li>
+     <li class=""><a href="subject-choices.aspx" >Subject Choices</a></li>
   
     <li class="dropdown active">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">hi... <span id="student_name" runat="server"> Student Name </span><span class="caret"></span></a>

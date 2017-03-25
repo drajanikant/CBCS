@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using winCBCS.utility;
 using System.Configuration;
 using MySql.Data.MySqlClient;
-
+using System.Text.RegularExpressions;
 namespace winCBCS.student
 {
     public partial class WebForm4 : System.Web.UI.Page
@@ -23,7 +23,9 @@ namespace winCBCS.student
             }
             CheckCookies();
         }
-        String studentId;
+        static String studentId;
+        static int core_credits = 0;
+        int elective_credits = 0;
         private void CheckCookies()
         {
             HttpCookie ck = Request.Cookies["StudentCookie"];
@@ -73,34 +75,47 @@ namespace winCBCS.student
         {
             
 
-            String SubjectType = "elective subject";
+            String SubjectType = "2";
             try
             {
                 MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["cbcs_connection"].ConnectionString);
-                MySqlCommand cmd = new MySqlCommand("select  * from timetable_subject where subject_type='" + SubjectType + "' and subject_semester='" + drdSem.SelectedItem.ToString() + "' ", con);
+                MySqlCommand cmd = new MySqlCommand("select subject_id, CONCAT(subject_name,' [ credits : ', subject_credit,' ]') as name  from timetable_subject where subject_type='" + SubjectType + "' and subject_semester='" + drdSem.SelectedItem.ToString() + "' ", con);
                 con.Open();
                 MySqlDataReader dr = cmd.ExecuteReader();
 
-                cbElective.DataTextField = "subject_name";
-                cbElective.DataValueField = "subject_name";
+                cbElective.DataTextField = "name";
+                cbElective.DataValueField = "subject_id";
                 cbElective.DataSource = dr;
                 cbElective.DataBind();
-
-               /* while (dr.Read())
-                {
-                    ListItem item = new ListItem();
-                    item.Text = dr["subject_name"].ToString();
-                    item.Value = dr["subject_name"].ToString();
-
-                    item.Selected = Convert.ToBoolean(dr["IsSelected"]);
-                    cbElective.Items.Add(item);
-                }*/
                 con.Close();
             }
             catch (Exception)
             {
             }
 
+
+            String type = "1";
+            try
+            {
+                lbCore.DataSource = DBConnection.GetDataTable("select subject_id, CONCAT(subject_name,' [ credits : ', subject_credit,' ]') as name from timetable_subject where subject_type='" + type + "' and subject_semester='" + drdSem.SelectedItem.ToString() + "' and course_name='" + drdCourse.SelectedItem.ToString() + "'");
+                lbCore.DataTextField = "name";
+                lbCore.DataValueField = "subject_id";
+                lbCore.DataBind();
+               }
+            catch (Exception)
+            {
+            }
+            core_credits = 0;
+            foreach (ListItem item in lbCore.Items)
+            {
+                string input = item.ToString();
+                string pattern = ": ";            // Split on hyphens
+
+                string[] substrings = Regex.Split(input, pattern);
+                core_credits+= Int32.Parse(substrings[1].Substring(0, 1));
+
+            }
+            total_credit.InnerHtml= ""+core_credits;
         }
 
         private void LoadCourse()
@@ -118,28 +133,58 @@ namespace winCBCS.student
 
         protected void drdCourse_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String type = "core subject";
-            try
-            {
-                lbCore.DataSource = DBConnection.GetDataTable("select  subject_name from timetable_subject where subject_type='" + type + "' and subject_semester='" + drdSem.SelectedItem.ToString() + "' and course_name='" + drdCourse.SelectedItem.ToString() + "'");
-                lbCore.DataTextField = "subject_name";
-                lbCore.DataValueField = "subject_name";
-                lbCore.DataBind();
-                // lbCore.Items.Insert(0, "");
-            }
-            catch (Exception)
-            {
-            }
+           
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            if (Int32.Parse(total_credit.InnerHtml) > 30)
+            {
+                alert_error.Visible = true;
+                error_msg.InnerHtml = "Credit limit not exccides than 30 credits";
+            }
+            else if (Int32.Parse(total_credit.InnerHtml) < 20)
+            {
+                alert_error.Visible = true;
+                error_msg.InnerHtml = "Credit limit not less than 20 credits";
+            }
+            else
+            {
+                foreach (ListItem item in cbElective.Items)
+                {
+
+                    if (item.Selected)
+                    {
+                        string input = item.ToString();
+                        string pattern = ": ";            // Split on hyphens
+
+                        string[] substrings = Regex.Split(input, pattern);
+                        int credits = Int32.Parse(substrings[1].Substring(0, 1));
+                        AddSubjectChoice(credits, Int32.Parse(item.Value));
+                    }
+
+
+                }
+
+                foreach (ListItem item in lbCore.Items)
+                {
+                    string input = item.ToString();
+                    string pattern = ": ";            // Split on hyphens
+
+                    string[] substrings = Regex.Split(input, pattern);
+                    int credits = Int32.Parse(substrings[1].Substring(0, 1));
+                    AddSubjectChoice(credits, Int32.Parse(item.Value));
+                }
+            }
+        }
+
+        private void AddSubjectChoice(int credits, int subject_id) { 
             MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["cbcs_connection"].ConnectionString);
-            MySqlCommand cmd = new MySqlCommand("insert into timetable_choice (choice_studid,choice_subjectid,) values(?choice_studid,?choice_subjectid)", con);
-           /* cmd.Parameters.AddWithValue("?subject_name", txtSubject.Text);
-            cmd.Parameters.AddWithValue("?subject_semester", drpAcademicsemester.SelectedItem.ToString());
-            cmd.Parameters.AddWithValue("?subject_maxstudent", txtMaxstudent.Text);
-            cmd.Parameters.AddWithValue("?subject_minstudent", txtMinstudent.Text);*/
+            MySqlCommand cmd = new MySqlCommand("insert into timetable_choice (choice_studid,choice_subjectid,choice_credit,choice_sem) values(?choice_studid,?choice_subjectid,?choice_credit,?choice_sem)", con);
+            cmd.Parameters.AddWithValue("?choice_studid", studentId);
+            cmd.Parameters.AddWithValue("?choice_subjectid",subject_id );
+            cmd.Parameters.AddWithValue("?choice_credit", credits);
+            cmd.Parameters.AddWithValue("?choice_sem", drdSem.SelectedItem.ToString());
             try
             {
                 con.Open();
@@ -171,6 +216,24 @@ namespace winCBCS.student
                 }
             }
         
+        }
+        protected void cbElective_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (ListItem item in cbElective.Items)
+            {
+                
+                if (item.Selected)
+                {
+                    string input = item.ToString();
+                    string pattern = ": ";            // Split on hyphens
+
+                    string[] substrings = Regex.Split(input, pattern);
+                    elective_credits += Int32.Parse(substrings[1].Substring(0, 1));
+                }
+
+              
+            }
+            total_credit.InnerHtml = "" + (core_credits + elective_credits);
         }
 
     }

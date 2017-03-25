@@ -10,7 +10,7 @@
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">hi... <span id="faculty_name" runat="server">Faculty Name </span><span class="caret"></span></a>
         <ul class="dropdown-menu">
-            <li><a href="#">Change Password</a></li>
+            <li><a href="change-pass.aspx">Change Password</a></li>
             <li><a href="../logout.aspx">Logout</a></li>
         </ul>
     </li>
