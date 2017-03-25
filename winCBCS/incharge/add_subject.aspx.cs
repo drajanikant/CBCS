@@ -181,7 +181,7 @@ namespace winCBCS.incharge
             cmd.Parameters.AddWithValue("?practical_credit", txtpracticalcredit.Text);
             cmd.Parameters.AddWithValue("?tutorial_credit", txtTutorialcredit.Text);
             cmd.Parameters.AddWithValue("?subject_code", txtSubjectCode.Text);
-            cmd.Parameters.AddWithValue("?subject_type",drpSubjectType.SelectedItem.ToString());
+            cmd.Parameters.AddWithValue("?subject_type",drpSubjectType.SelectedValue);
 
             try
             {

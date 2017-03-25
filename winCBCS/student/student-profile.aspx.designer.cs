@@ -22,66 +22,66 @@ namespace winCBCS.student {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl student_name;
         
         /// <summary>
-        /// alert_error control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alert_error;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// error_msg control.
+        /// txtRoll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl error_msg;
+        protected global::System.Web.UI.WebControls.TextBox txtRoll;
         
         /// <summary>
-        /// alert_success control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alert_success;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// txtStudentName control.
+        /// txtName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStudentName;
+        protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
-        /// txtStudentRollno control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStudentRollno;
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// txtEmail1 control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail1;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
-        /// btnEdit control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEdit;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }
