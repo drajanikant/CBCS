@@ -49,6 +49,15 @@ namespace winCBCS.faculty {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl alert_success;
         
         /// <summary>
+        /// form_changePass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form_changePass;
+        
+        /// <summary>
         /// txtCurrentPass control.
         /// </summary>
         /// <remarks>

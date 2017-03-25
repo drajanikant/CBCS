@@ -19,6 +19,7 @@ namespace winCBCS.student
                 alert_error.Visible = false;
                 alert_success.Visible = false;
                 LoadAcademicYear();
+                LoadCourse();
             }
             CheckCookies();
         }
@@ -67,5 +68,110 @@ namespace winCBCS.student
             { 
             }
         }
+
+        protected void drdSem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+
+            String SubjectType = "elective subject";
+            try
+            {
+                MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["cbcs_connection"].ConnectionString);
+                MySqlCommand cmd = new MySqlCommand("select  * from timetable_subject where subject_type='" + SubjectType + "' and subject_semester='" + drdSem.SelectedItem.ToString() + "' ", con);
+                con.Open();
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                cbElective.DataTextField = "subject_name";
+                cbElective.DataValueField = "subject_name";
+                cbElective.DataSource = dr;
+                cbElective.DataBind();
+
+               /* while (dr.Read())
+                {
+                    ListItem item = new ListItem();
+                    item.Text = dr["subject_name"].ToString();
+                    item.Value = dr["subject_name"].ToString();
+
+                    item.Selected = Convert.ToBoolean(dr["IsSelected"]);
+                    cbElective.Items.Add(item);
+                }*/
+                con.Close();
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+
+        private void LoadCourse()
+        {
+            try
+            {
+                drdCourse.DataSource = DBConnection.GetDataTable("select distinct course_name from timetable_course ");
+                drdCourse.DataTextField = "course_name";
+                drdCourse.DataValueField = "course_name";
+                drdCourse.DataBind();
+                drdCourse.Items.Insert(0, "");
+            }
+            catch (Exception) { }
+        }
+
+        protected void drdCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String type = "core subject";
+            try
+            {
+                lbCore.DataSource = DBConnection.GetDataTable("select  subject_name from timetable_subject where subject_type='" + type + "' and subject_semester='" + drdSem.SelectedItem.ToString() + "' and course_name='" + drdCourse.SelectedItem.ToString() + "'");
+                lbCore.DataTextField = "subject_name";
+                lbCore.DataValueField = "subject_name";
+                lbCore.DataBind();
+                // lbCore.Items.Insert(0, "");
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["cbcs_connection"].ConnectionString);
+            MySqlCommand cmd = new MySqlCommand("insert into timetable_choice (choice_studid,choice_subjectid,) values(?choice_studid,?choice_subjectid)", con);
+           /* cmd.Parameters.AddWithValue("?subject_name", txtSubject.Text);
+            cmd.Parameters.AddWithValue("?subject_semester", drpAcademicsemester.SelectedItem.ToString());
+            cmd.Parameters.AddWithValue("?subject_maxstudent", txtMaxstudent.Text);
+            cmd.Parameters.AddWithValue("?subject_minstudent", txtMinstudent.Text);*/
+            try
+            {
+                con.Open();
+                int res = cmd.ExecuteNonQuery();
+                if (res > 0)
+                {
+                    alert_success.Visible = true;
+                }
+                else
+                {
+                    alert_error.Visible = true;
+                }
+                con.Close();
+            }
+            catch (Exception ee)
+            {
+                alert_error.Visible = true;
+                error_msg.InnerHtml = ee.Message;
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+                if (cmd != null)
+                {
+                    cmd.Dispose();
+                }
+            }
+        
+        }
+
     }
 }

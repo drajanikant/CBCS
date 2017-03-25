@@ -17,29 +17,38 @@
     </li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
-    <div class="col-md-6"></div>
-  <div class="col-md-6">
+    <div class="col-md-offset-6">
+    <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Fail!</strong>
+        <label id="error_msg" runat="server">Subject Not Added.</label>.
+    </div>
+    <div id="alert_success" runat="server" class="alert alert-success alert-dismissable fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> Subject Added successful.
+    </div>
+        </div>
+  <div class="col-md-offset-6">
          <div class="panel panel-default " >
   <div class="panel-heading ">Profile</div>
   <div class="panel-body ">
     <div class="form-group">
         <asp:Label ID="Label1" runat="server" Text="Roll No"></asp:Label>
-        <asp:TextBox ID="txtRoll" runat="server" CssClass="form-control" ></asp:TextBox>
+        <asp:TextBox ID="txtRoll" runat="server" CssClass="form-control" ReadOnly="True" ></asp:TextBox>
     </div>
       <div class="form-group">
         <asp:Label ID="Label2" runat="server" Text="Name"></asp:Label>
-        <asp:TextBox ID="txtName" runat="server" CssClass="form-control" ></asp:TextBox>
+        <asp:TextBox ID="txtName" runat="server" CssClass="form-control" ReadOnly="True" ></asp:TextBox>
     </div>
     <div class="form-group">
         <asp:Label ID="Label3" runat="server" Text="Email"></asp:Label>
-        <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
+        <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" ReadOnly="True"></asp:TextBox>
     </div>
+      <asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click" CssClass="btn btn-info" />
    </div>
 </div>
   </div>
-    <div class="col-md-6">
-    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
-        </div>
+    
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
 </asp:Content>

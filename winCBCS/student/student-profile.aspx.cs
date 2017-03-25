@@ -42,18 +42,38 @@ namespace winCBCS.student
 
         protected void btnEdit_Click1(object sender, EventArgs e)
         {
-              if (btnEdit.Text.Equals("Edit"))
+        }
+        private void LoadData()
+        {
+            try
             {
-                txtStudentName.ReadOnly = false;
-                txtStudentRollno.ReadOnly = false;
-                txtEmail1.Enabled = true;
+                DataRow dr = DBConnection.GetDataRow("select * from timetable_student where (student_id='" + studentId + "')");
+                txtName.Text = dr["student_name"].ToString();
+                txtRoll.Text = dr["student_rollno"].ToString();
+                txtEmail.Text = dr["student_email"].ToString();
+                
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+
+            if (btnEdit.Text.Equals("Edit"))
+            {
+                txtName.ReadOnly = false;
+                txtRoll.ReadOnly = false;
+                txtEmail.ReadOnly = false;
                 btnEdit.Text = "Update";
             }
             else if (btnEdit.Text.Equals("Update"))
             {
 
                 MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["cbcs_connection"].ConnectionString);
-                MySqlCommand cmd = new MySqlCommand("update timetable_student set student_name='"+txtStudentName.Text+"',student_rollno='"+txtStudentRollno.Text+"',student_email='"+txtEmail1.Text+"' where (student_id='"+studentId+"')", con);
+                MySqlCommand cmd = new MySqlCommand("update timetable_student set student_name='" + txtName.Text + "',student_rollno='" + txtRoll.Text + "',student_email='" + txtEmail.Text + "' where (student_id='" + studentId + "')", con);
                 int id = Int32.Parse(studentId);
                 try
                 {
@@ -87,26 +107,9 @@ namespace winCBCS.student
                     }
                 }
                 btnEdit.Text = "Edit";
-                txtStudentName.ReadOnly = true;
-                txtStudentRollno.ReadOnly = true;
-                txtEmail1.ReadOnly = true;
-                            
-            }
-        }
-        private void LoadData()
-        {
-            try
-            {
-                DataRow dr = DBConnection.GetDataRow("select * from timetable_student where (student_id='" + studentId + "')");
-                txtStudentName.Text = dr["student_name"].ToString();
-                txtStudentRollno.Text = dr["student_rollno"].ToString();
-                txtEmail1.Text = dr["student_email"].ToString();
-                txtStudentName.ReadOnly = true;
-                txtStudentRollno.ReadOnly = true;
-                txtEmail1.ReadOnly = true;
-            }
-            catch (Exception e)
-            {
+                txtName.ReadOnly = true;
+                txtRoll.ReadOnly = true;
+                txtEmail.ReadOnly = true;
 
             }
         }

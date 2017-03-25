@@ -85,13 +85,13 @@
     </nav>
 
     <div class="container">
-    <form id="form1" runat="server">
+   
     <div>
         <asp:ContentPlaceHolder ID="content" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
-    </form>
+   
     </div>
 
      <footer class="footer">
