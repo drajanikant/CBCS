@@ -16,12 +16,14 @@ namespace winCBCS.student
         protected void Page_Load(object sender, EventArgs e)
         {
             CheckCookies();
+            LoadData();
             if (!IsPostBack)
             {
                 alert_error.Visible = false;
                 alert_success.Visible = false;
-                LoadData();
+
             }
+            
         }
 
         String studentId;
