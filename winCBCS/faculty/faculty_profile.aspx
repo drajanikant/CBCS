@@ -34,7 +34,10 @@
              <div class="form-group">
                 <label for="email">Employee Id:</label>
                 <asp:TextBox ID="txtEmployeeId" runat="server" CssClass="form-control" ReadOnly="True" ></asp:TextBox>
-               </div>
+               
+             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger"  runat="server" ErrorMessage="Enter Employee id !!!" ControlToValidate="txtEmployeeId" Display="Dynamic"></asp:RequiredFieldValidator>
+             
+             </div>
 
            
             <div class="form-group">
