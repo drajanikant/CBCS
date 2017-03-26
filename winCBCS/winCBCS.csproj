@@ -210,6 +210,11 @@
     <Compile Include="incharge\incharge_profile.aspx.designer.cs">
       <DependentUpon>incharge_profile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="population\Faculty.cs" />
+    <Compile Include="population\Strudent.cs" />
+    <Compile Include="population\Subject.cs" />
+    <Compile Include="population\Time.cs" />
+    <Compile Include="population\Venue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
