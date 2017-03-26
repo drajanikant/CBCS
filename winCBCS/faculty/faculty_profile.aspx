@@ -10,7 +10,7 @@
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">hi... <span id="faculty_name" runat="server"> Faculty Name </span> <span class="caret"></span></a>
         <ul class="dropdown-menu">
-            <li><a href="#">Change Password</a></li>
+            <li><a href="change-pass.aspx">Change Password</a></li>
             <li><a href="../logout.aspx">Logout</a></li>
         </ul>
     </li>
@@ -27,44 +27,59 @@
             <strong>Success!</strong> Faculty registration successful.
         </div>
     </div>
+    <form id="from2" runat="server">
     <div class="col-md-offset-6">
     <div class=" panel panel-success ">
         <div class="panel-body">
              <div class="form-group">
                 <label for="email">Employee Id:</label>
-                <asp:TextBox ID="txtEmployeeId" runat="server" CssClass="form-control" ></asp:TextBox>
-               </div>
+                <asp:TextBox ID="txtEmployeeId" runat="server" CssClass="form-control" ReadOnly="True" ></asp:TextBox>
+               
+             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger"  runat="server" ErrorMessage="Enter Employee id !!!" ControlToValidate="txtEmployeeId" Display="Dynamic"></asp:RequiredFieldValidator>
+             
+             </div>
 
            
             <div class="form-group">
                 <label for="email">Employee Email:</label>
-                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" ></asp:TextBox>
+                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" ReadOnly="True" ></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldEmail" CssClass="text-danger"  runat="server" ErrorMessage="Enter Email !!!" ControlToValidate="txtEmail" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpression" CssClass="text-danger" runat="server" ErrorMessage="Enter Valid Email!!!" ControlToValidate="txtEmail" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ></asp:RegularExpressionValidator>
                </div>
             <div class="form-group">
                 <label for="email">Designation :</label>
-                <asp:DropDownList ID="drdDesignation" runat="server" CssClass="form-control" >
-                      <asp:ListItem></asp:ListItem> 
-                    <asp:ListItem>H.O.D.</asp:ListItem>
-                    <asp:ListItem>Professor</asp:ListItem>
-                    <asp:ListItem>Associate Professor </asp:ListItem>
-                    <asp:ListItem>Senior Assistant Professor</asp:ListItem>
-                    <asp:ListItem>Assistant Professor</asp:ListItem>
+                <asp:DropDownList ID="drdDesignation" runat="server" CssClass="form-control" Enabled="False" >
+                      <asp:ListItem Value="0"></asp:ListItem> 
+                    <asp:ListItem Value="1">H.O.D.</asp:ListItem>
+                    <asp:ListItem Value="2">Professor</asp:ListItem>
+                    <asp:ListItem Value="3">Associate Professor </asp:ListItem>
+                    <asp:ListItem Value="4">Senior Assistant Professor</asp:ListItem>
+                    <asp:ListItem Value="5">Assistant Professor</asp:ListItem>
                 </asp:DropDownList>
+
+                
+
                  </div>
             <div class="form-group">
                 <label for="email">Experiance :</label>
-                <asp:TextBox ID="txtExperiance" runat="server" CssClass="form-control" ></asp:TextBox>
+                <asp:TextBox ID="txtExperiance" runat="server" CssClass="form-control" ReadOnly="True" ></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldExperiance" CssClass="text-danger"  runat="server" ErrorMessage="Enter Experiance !!!" ControlToValidate="txtExperiance" Display="Dynamic"></asp:RequiredFieldValidator>
+
                </div>
              <div class="form-group">
                 <label for="email">Qualification :</label>
-                 <asp:TextBox ID="txtQualification" runat="server" CssClass="form-control"></asp:TextBox>
-               </div>
-            <asp:Button ID="btnEdit" runat="server" Text="Edit" CssClass="btn btn-info" />
+                 <asp:TextBox ID="txtQualification" runat="server" CssClass="form-control" ReadOnly="True"></asp:TextBox>
+             <asp:RequiredFieldValidator ID="RequiredFieldQualification" CssClass="text-danger"  runat="server" ErrorMessage="Enter Qualification !!!" ControlToValidate="txtQualification" Display="Dynamic"></asp:RequiredFieldValidator>
+  
+             
+             
+             </div>
+            <asp:Button ID="btnEdit" runat="server" Text="Edit" CssClass="btn btn-info" OnClick="btnEdit_Click" />
         </div>
 
     </div>
         </div>
-   
+   </form>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
 </asp:Content>

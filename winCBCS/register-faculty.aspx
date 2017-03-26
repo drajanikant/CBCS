@@ -35,41 +35,61 @@
             <div class="form-group">
                 <label for="txtEmpId">Employee Id :</label>
                 <asp:TextBox ID="txtEmpId" runat="server" CssClass="form-control"></asp:TextBox>
+                 <asp:RequiredFieldValidator ID="RequiredFieldEmpId" CssClass="text-danger"  runat="server" ErrorMessage="Enter Employee id !!!" ControlToValidate="txtEmpId" Display="Dynamic"></asp:RequiredFieldValidator>
+
             </div>
             <div class="form-group">
                 <label for="txtName">Name :</label>
                 <asp:TextBox ID="txtName" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldName" CssClass="text-danger"  runat="server" ErrorMessage="Enter Name !!!" ControlToValidate="txtName" Display="Dynamic"></asp:RequiredFieldValidator>
+
+            
+            
             </div>
             <div class="form-group">
                 <label for="txtEmail">Email :</label>
                 <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldemail" CssClass="text-danger"  runat="server" ErrorMessage="Enter Email !!!" ControlToValidate="txtEmail" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionEmail" runat="server" ErrorMessage="Enter Valid Email" ControlToValidate="txtEmail" CssClass="text-danger" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ></asp:RegularExpressionValidator>
             </div>
 
             <div class="form-group">
                 <label for="email">Designation :</label>
                 <asp:DropDownList ID="drdDesignation" runat="server" CssClass="form-control">
+                    <asp:ListItem Value=""></asp:ListItem> 
                     <asp:ListItem>H.O.D.</asp:ListItem>
                     <asp:ListItem>Professor</asp:ListItem>
                     <asp:ListItem>Associate Professor </asp:ListItem>
                     <asp:ListItem>Senior Assistant Professor</asp:ListItem>
                     <asp:ListItem>Assistant Professor</asp:ListItem>
                 </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldDesignation" CssClass="text-danger"  runat="server" ErrorMessage="Enter Designation !!!" ControlToValidate="drdDesignation" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
             <div class="form-group">
                 <label for="email">Experiance :</label>
                 <asp:TextBox ID="txtExperiance" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldexp" CssClass="text-danger"  runat="server" ErrorMessage="Enter Experiance !!!" ControlToValidate="txtExperiance" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RangeValidator ID="RangeValidatorExp" runat="server" ErrorMessage="Enter Valid Experiance" ControlToValidate="txtExperiance" CssClass="text-danger" MaximumValue="35" MinimumValue="0" ></asp:RangeValidator>
+            
             </div>
             <div class="form-group">
                 <label for="email">Qualification :</label>
                 <asp:TextBox ID="txtQualification" runat="server" CssClass="form-control"></asp:TextBox>
+                 <asp:RequiredFieldValidator ID="RequiredFieldQualification" CssClass="text-danger"  runat="server" ErrorMessage="Enter Qualification !!!" ControlToValidate="txtQualification" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
             <div class="form-group">
                 <label for="txtNewPass">Password :</label>
                 <asp:TextBox ID="txtNewPass" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
-            </div>
+            <asp:RequiredFieldValidator ID="RequiredFieldNewPass" CssClass="text-danger"  runat="server" ErrorMessage="Enter Password !!!" ControlToValidate="txtNewPass" Display="Dynamic"></asp:RequiredFieldValidator>
+                
+                 </div>
             <div class="form-group">
                 <label for="txtNewPass">Confirm Password :</label>
                 <asp:TextBox ID="txtConfirm" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldCPass" CssClass="text-danger"  runat="server" ErrorMessage="Enter Confirm Password !!!" ControlToValidate="txtConfirm" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtNewPass" ControlToValidate="txtConfirm" CssClass="text-danger" ErrorMessage="Password Must Be Same!!!"></asp:CompareValidator>
+            
+            
             </div>
             <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-info" OnClick="btnRegister_Click" />
         </div>

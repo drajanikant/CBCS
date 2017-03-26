@@ -55,7 +55,7 @@
 
 
 
-     <div class="col-md-6">
+     <div class="col-md-offset-6">
     <div class="panel panel-default">
   <div class="panel-heading" >Forgot Password</div>
   <div class="panel-body">

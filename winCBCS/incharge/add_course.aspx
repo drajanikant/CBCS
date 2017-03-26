@@ -41,7 +41,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
-
+    
 
     <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -55,9 +55,9 @@
 
 
 
-    <div class="col-md-6">
+    <div class="col-md-offset-6 ">
         <div class="panel panel-default">
-            <div class="panel-heading">Add Cources</div>
+            <div class="panel-heading" style="font-size: 20px; text-align: center;">Add Cources</div>
             <div class="panel-body">
 
                 <div id="add_course" runat="server" class="form-horizontal ">
@@ -73,7 +73,7 @@
                                 <asp:ListItem Value="5">Information Technology</asp:ListItem>
                                 <asp:ListItem Value="6">Automobile Engineering</asp:ListItem>
                             </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="requirefieldcourse" CssClass="text-danger" InitialValue="0" runat="server" ErrorMessage="Enter Course Name !!!" ControlToValidate="drpCoursename"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="requirefieldcourse" CssClass="text-danger" InitialValue="0" runat="server" ErrorMessage="Enter Course Name !!!" ControlToValidate="drpCoursename" Display="Dynamic"></asp:RequiredFieldValidator>
 
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                         </asp:Label>
                         <div class="col-md-6">
                             <asp:TextBox ID="txtAcademicyear" CssClass="col-md-2 form-control" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldyear" CssClass="text-danger" runat="server" ErrorMessage="Enter Academic Year !!!" ControlToValidate="txtAcademicyear"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldyear" CssClass="text-danger" runat="server" ErrorMessage="Enter Academic Year !!!" ControlToValidate="txtAcademicyear" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
@@ -103,7 +103,7 @@
                                 <asp:ListItem Value="9">Sem - IX</asp:ListItem>
                                 <asp:ListItem Value="10">Sem - X</asp:ListItem>
                             </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RequiredFieldsem" CssClass="text-danger" InitialValue="0" runat="server" ErrorMessage="Enter Academic Sem!!!" ControlToValidate="drpAcademicsemester"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldsem" CssClass="text-danger" InitialValue="0" runat="server" ErrorMessage="Enter Academic Sem!!!" ControlToValidate="drpAcademicsemester" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                 </div>

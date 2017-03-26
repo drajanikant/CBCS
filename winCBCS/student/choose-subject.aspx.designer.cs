@@ -49,15 +49,6 @@ namespace winCBCS.student {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl alert_success;
         
         /// <summary>
-        /// lblCredits control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCredits;
-        
-        /// <summary>
         /// Email control.
         /// </summary>
         /// <remarks>
@@ -74,6 +65,42 @@ namespace winCBCS.student {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drdYear;
+        
+        /// <summary>
+        /// RequiredFieldAcademicYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldAcademicYear;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// drdCourse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drdCourse;
+        
+        /// <summary>
+        /// RequiredFieldCourse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldCourse;
         
         /// <summary>
         /// Label2 control.
@@ -94,6 +121,15 @@ namespace winCBCS.student {
         protected global::System.Web.UI.WebControls.DropDownList drdSem;
         
         /// <summary>
+        /// RequiredFieldSem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldSem;
+        
+        /// <summary>
         /// lbCore control.
         /// </summary>
         /// <remarks>
@@ -101,6 +137,24 @@ namespace winCBCS.student {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lbCore;
+        
+        /// <summary>
+        /// total_credit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl total_credit;
+        
+        /// <summary>
+        /// cbElective control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList cbElective;
         
         /// <summary>
         /// btnSubmit control.

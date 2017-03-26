@@ -87,7 +87,7 @@
     <Content Include="student\change-pass-student.aspx" />
     <Content Include="student\choose-subject.aspx" />
     <Content Include="student\edit-student.aspx" />
-    <Content Include="student\show-time-table.aspx" />
+    <Content Include="student\subject-choices.aspx" />
     <Content Include="student\student-home.aspx" />
     <Content Include="student\student-profile.aspx" />
     <Content Include="Web.config" />
@@ -184,18 +184,21 @@
     </Compile>
     <Compile Include="incharge\incharge_listcourse.aspx.cs">
       <DependentUpon>incharge_listcourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="incharge\incharge_listcourse.aspx.designer.cs">
       <DependentUpon>incharge_listcourse.aspx</DependentUpon>
     </Compile>
     <Compile Include="incharge\incharge_listsubject.aspx.cs">
       <DependentUpon>incharge_listsubject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="incharge\incharge_listsubject.aspx.designer.cs">
       <DependentUpon>incharge_listsubject.aspx</DependentUpon>
     </Compile>
     <Compile Include="incharge\incharge_listvenue.aspx.cs">
       <DependentUpon>incharge_listvenue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="incharge\incharge_listvenue.aspx.designer.cs">
       <DependentUpon>incharge_listvenue.aspx</DependentUpon>
@@ -257,12 +260,12 @@
     <Compile Include="student\edit-student.aspx.designer.cs">
       <DependentUpon>edit-student.aspx</DependentUpon>
     </Compile>
-    <Compile Include="student\show-time-table.aspx.cs">
-      <DependentUpon>show-time-table.aspx</DependentUpon>
+    <Compile Include="student\subject-choices.aspx.cs">
+      <DependentUpon>subject-choices.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="student\show-time-table.aspx.designer.cs">
-      <DependentUpon>show-time-table.aspx</DependentUpon>
+    <Compile Include="student\subject-choices.aspx.designer.cs">
+      <DependentUpon>subject-choices.aspx</DependentUpon>
     </Compile>
     <Compile Include="student\student-home.aspx.cs">
       <DependentUpon>student-home.aspx</DependentUpon>

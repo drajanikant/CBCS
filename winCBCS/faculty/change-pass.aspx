@@ -9,7 +9,7 @@
     <li class="dropdown active">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">hi... <span id="faculty_name" runat="server"> Faculty Name </span> <span class="caret"></span></a>
         <ul class="dropdown-menu">
-            <li><a href="#">Change Password</a></li>
+            <li><a href="change-pass.aspx">Change Password</a></li>
             <li><a href="../logout.aspx">Logout</a></li>
         </ul>
     </li>
@@ -28,26 +28,30 @@
         </div>
     </div>
     <div class="col-md-6"></div>
-     <div class="panel panel-success col-md-6">
+     <form id="form_changePass" runat="server" class="panel panel-success col-md-6">
         <div class="panel-body">
              <div class="form-group">
                 <label for="email">Current Password:</label>
-                <asp:TextBox ID="txtCurrentPass" runat="server" CssClass="form-control" ></asp:TextBox>
-               </div>
+                <asp:TextBox ID="txtCurrentPass" runat="server" CssClass="form-control" OnTextChanged="txtCurrentPass_TextChanged" ></asp:TextBox>
+              <asp:RequiredFieldValidator ID="requirefieldCurrentPass" CssClass="text-danger"  runat="server" ErrorMessage="Enter Current Password !!!" ControlToValidate="txtCurrentPass" Display="Dynamic"></asp:RequiredFieldValidator>  
+             </div>
             <div class="form-group">
                 <label for="email">New Password:</label>
                 <asp:TextBox ID="txtNewPass" runat="server" CssClass="form-control"  TextMode="Password" ></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldNewPass" CssClass="text-danger"  runat="server" ErrorMessage="Enter New Password !!!" ControlToValidate="txtNewPass" Display="Dynamic"></asp:RequiredFieldValidator>  
+                
                </div>
             <div class="form-group">
                 <label for="email">Confirm Password :</label>
                 <asp:TextBox ID="txtConfirmPass" runat="server" CssClass="form-control"  TextMode="Password" ></asp:TextBox>
                  <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Both passwords not match" ControlToCompare="txtNewPass" ControlToValidate="txtConfirmPass" CssClass="text-danger"></asp:CompareValidator>
-                 </div>
+                 <asp:RequiredFieldValidator ID="RequiredFieldCpass" CssClass="text-danger"  runat="server" ErrorMessage="Enter Password !!!" ControlToValidate="txtConfirmPass" Display="Dynamic"></asp:RequiredFieldValidator>  
+            </div>
            
             <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-info" OnClick="btnUpdate_Click" />
         </div>
 
-    </div>
+    </form>
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">

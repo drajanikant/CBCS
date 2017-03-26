@@ -49,6 +49,15 @@ namespace winCBCS.faculty {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl alert_success;
         
         /// <summary>
+        /// form_changePass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form_changePass;
+        
+        /// <summary>
         /// txtCurrentPass control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace winCBCS.faculty {
         protected global::System.Web.UI.WebControls.TextBox txtCurrentPass;
         
         /// <summary>
+        /// requirefieldCurrentPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requirefieldCurrentPass;
+        
+        /// <summary>
         /// txtNewPass control.
         /// </summary>
         /// <remarks>
@@ -65,6 +83,15 @@ namespace winCBCS.faculty {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNewPass;
+        
+        /// <summary>
+        /// RequiredFieldNewPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldNewPass;
         
         /// <summary>
         /// txtConfirmPass control.
@@ -83,6 +110,15 @@ namespace winCBCS.faculty {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        
+        /// <summary>
+        /// RequiredFieldCpass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldCpass;
         
         /// <summary>
         /// btnUpdate control.

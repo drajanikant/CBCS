@@ -34,6 +34,7 @@ namespace winCBCS.student
             }
             else
             {
+
                 Response.Redirect("../logout.aspx");
             }
         }

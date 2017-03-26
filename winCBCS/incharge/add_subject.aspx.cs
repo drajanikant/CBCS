@@ -73,6 +73,18 @@ namespace winCBCS.incharge
         }
         protected void btnClear_Click(object sender, EventArgs e)
         {
+            txtCredit.Text = "";
+            txtLecturecredit.Text = "";
+            txtMaxstudent.Text = "";
+            txtMinstudent.Text = "";
+            txtpracticalcredit.Text = "";
+            txtSubject.Text = "";
+            txtSubjectCode.Text = "";
+            txtTutorialcredit.Text = "";
+            drpAcademicsemester.SelectedIndex = -1;
+            drpAcademicyear.SelectedIndex = -1;
+            drpCourse.SelectedIndex = -1;
+            drpSubjectType.SelectedIndex = -1;
         }
 
         protected void txtMinstudent_TextChanged(object sender, EventArgs e)
@@ -119,6 +131,7 @@ namespace winCBCS.incharge
 
         protected void drpAcademicyear_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             try
             {
                 drpCourse.DataSource = DBConnection.GetDataTable("select distinct course_name from timetable_course where (course_academic_year='" + drpAcademicyear.SelectedItem.ToString() + "' )");
@@ -169,7 +182,7 @@ namespace winCBCS.incharge
             cmd.Parameters.AddWithValue("?practical_credit", txtpracticalcredit.Text);
             cmd.Parameters.AddWithValue("?tutorial_credit", txtTutorialcredit.Text);
             cmd.Parameters.AddWithValue("?subject_code", txtSubjectCode.Text);
-            cmd.Parameters.AddWithValue("?subject_type",drpSubjectType.SelectedItem.ToString());
+            cmd.Parameters.AddWithValue("?subject_type",drpSubjectType.SelectedValue);
 
             try
             {
