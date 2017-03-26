@@ -310,6 +310,7 @@
     <Content Include="faculty\faculty.Master" />
     <Content Include="cbcs.Master" />
     <Content Include="student\student-home.Master" />
+    <None Include="Properties\PublishProfiles\cbcs.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

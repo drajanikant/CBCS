@@ -36,7 +36,7 @@
                 <label for="txtRoll">Roll Number :</label>
                 <asp:TextBox ID="txtRoll" runat="server" CssClass="form-control"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Roll number required" ControlToValidate="txtRoll" CssClass="text-danger" Display="Dynamic"></asp:RequiredFieldValidator>
-                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtRoll" CssClass="text-danger" Display="Dynamic" ErrorMessage="Student roll must be digits" ValidationExpression="\d[0-9]"></asp:RegularExpressionValidator>
+                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtRoll" CssClass="text-danger" Display="Dynamic" ErrorMessage="Student roll must be digits" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
                </div>
              <div class="form-group">
                 <label for="txtName">Name :</label>
