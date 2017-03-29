@@ -14,14 +14,14 @@ namespace winCBCS.incharge
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            CheckCookies();
             if (!IsPostBack)
             {
                 alert_error.Visible = false;
                 alert_success.Visible = false;
                 display();
             }
-            CheckCookies();
+            
         }
 
 

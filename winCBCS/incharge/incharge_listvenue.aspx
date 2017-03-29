@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/incharge/incharge.Master" AutoEventWireup="true" CodeBehind="incharge_listvenue.aspx.cs" Inherits="winCBCS.incharge.WebForm8" %>
+﻿<%@ Page Title="Venue List" Language="C#" MasterPageFile="~/incharge/incharge.Master" AutoEventWireup="true" CodeBehind="incharge_listvenue.aspx.cs" Inherits="winCBCS.incharge.WebForm8" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentNavItems" runat="server">
@@ -69,7 +69,7 @@
                 <td><%# Eval("venue_type") %></td>
                 
                 <td>
-                    <asp:Button ID="btnDelete" runat="server" CommandName="data_delete" CommandArgument='<%# Eval("venue_id") %>' Text="Delete" CssClass="btn btn-danger" />
+                    <asp:Button ID="btnDelete" runat="server" CommandName="data_delete" CommandArgument='<%# Eval("vanue_id") %>' Text="Delete" CssClass="btn btn-danger" />
                 </td>
             </ItemTemplate>
         </asp:DataList>
