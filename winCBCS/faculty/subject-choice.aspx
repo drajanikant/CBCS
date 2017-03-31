@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentNavItems" runat="server">
     <li class=""><a href="faculty-home.aspx">Home</a></li>
-    <li class="active"><a href="subject-choice.aspx">Subject Choice</a></li>
+    <li class="active"><a href="subject-choice.aspx">Course Choice</a></li>
     <li class=""><a href="faculty_profile.aspx">Profile</a></li>
 
     <li class="dropdown">
@@ -22,11 +22,11 @@
             <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong>Fail!</strong>
-                <label id="error_msg" runat="server">Subject Not Added.</label>.
+                <label id="error_msg" runat="server">Course Not Added.</label>.
             </div>
             <div id="alert_success" runat="server" class="alert alert-success alert-dismissable fade in">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Success!</strong><label id="success_msg" runat="server"> Subject Added successful.</label>
+                <strong>Success!</strong><label id="success_msg" runat="server"> Course Added successful.</label>
             </div>
 
             <asp:Panel ID="panl_choice" runat="server"  class=" panel panel-primary">
@@ -39,7 +39,7 @@
 
                              </div>
                         <div class="form-group">
-                            <label for="email">Course Name:</label>
+                            <label for="email">Program Name:</label>
                             <asp:DropDownList ID="drdCourseName" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="drdCourseName_SelectedIndexChanged"></asp:DropDownList>
                         <asp:RequiredFieldValidator ID="RequiredFieldCourseName" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Course Name !!!" ControlToValidate="drdCourseName" Display="Dynamic" ValidationGroup="akki"></asp:RequiredFieldValidator>
 
@@ -54,9 +54,9 @@
                             
                              </div>
                         <div class="form-group">
-                            <label for="email">Subject Name:</label>
+                            <label for="email">Course Name:</label>
                             <asp:DropDownList ID="drdSubjetName" runat="server" CssClass="form-control" ></asp:DropDownList>
-                       <asp:RequiredFieldValidator ID="RequiredFieldSubname" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Subject !!!" ControlToValidate="drdSubjetName" Display="Dynamic" ValidationGroup="akki"></asp:RequiredFieldValidator>
+                       <asp:RequiredFieldValidator ID="RequiredFieldSubname" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Course !!!" ControlToValidate="drdSubjetName" Display="Dynamic" ValidationGroup="akki"></asp:RequiredFieldValidator>
 
                             
                              </div>
@@ -95,7 +95,7 @@
             <asp:DataList ID="dataSubjectChoice" runat="server" CssClass="table table-striped" OnItemCommand="dataSubjectChoice_ItemCommand">
                 <HeaderTemplate>
 
-                    <th>Subject Name</th>
+                    <th>Program Name</th>
                     <th>Priority</th>
                     <th>Exprience</th>
                     <th>Operations</th>

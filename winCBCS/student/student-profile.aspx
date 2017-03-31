@@ -4,8 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contentNavItems" runat="server">
             <li class=""><a href="student-home.aspx">Home</a></li>
         <!--<li class=""><a href="edit-student.aspx">Edit Profile</a></li>!-->
-        <li class=""><a href="choose-subject.aspx" >Choose Subject</a></li>
-         <li class=""><a href="subject-choices.aspx" >Subject Choices</a></li>
+        <li class=""><a href="choose-subject.aspx" >Choose Course</a></li>
+         <li class=""><a href="subject-choices.aspx" >Course Choices</a></li>
   
     <li class="dropdown active">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi...<label id="student_name" runat="server">Student Name</label><span class="caret"></span></a>
@@ -21,11 +21,11 @@
     <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong>Fail!</strong>
-        <label id="error_msg" runat="server">Subject Not Added.</label>.
+        <label id="error_msg" runat="server">Updation Failes!!!</label>.
     </div>
     <div id="alert_success" runat="server" class="alert alert-success alert-dismissable fade in">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Success!</strong> Subject Added successful.
+        <strong>Success!</strong> Updation successful.
     </div>
         </div>
   <div class="col-md-offset-6">

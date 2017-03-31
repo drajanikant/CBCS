@@ -4,8 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contentNavItems" runat="server">
         <li class=""><a href="student-home.aspx">Home</a></li>
     <!--<li class=""><a href="edit-student.aspx">Edit Profile</a></li>!-->
-    <li class=""><a href="choose-subject.aspx" >Choose Subject</a></li>
-     <li class="active"><a href="subject-choices.aspx" >Subject Choices</a></li>
+    <li class=""><a href="choose-subject.aspx" >Choose Course</a></li>
+     <li class="active"><a href="subject-choices.aspx" >Course Choices</a></li>
   
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi...<label id="student_name" runat="server">Student Name</label><span class="caret"></span></a>
@@ -21,8 +21,8 @@
 
          <HeaderTemplate>
 
-                <th>Subject Name</th>
-                <th>Subject Credits</th>
+                <th>Course Name</th>
+                <th>Course Credits</th>
                 <th>Theory Credits</th>
                 <th>Practical Credits</th>
                 <th>Tutorial Credits</th>

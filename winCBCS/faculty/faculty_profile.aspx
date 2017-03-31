@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentNavItems" runat="server">
      <li class=""><a href="faculty-home.aspx">Home</a></li>
-    <li class=""><a href="subject-choice.aspx">Subject Choice</a></li>
+    <li class=""><a href="subject-choice.aspx">Course Choice</a></li>
     <li class="active"><a href="faculty_profile.aspx">Profile</a></li>
    
     <li class="dropdown">
@@ -20,11 +20,11 @@
         <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <strong>Fail!</strong>
-            <label id="error_msg" runat="server">Registration Failed.</label>.
+            <label id="error_msg" runat="server">Updation Failed.</label>.
         </div>
         <div id="alert_success" runat="server" class="alert alert-success alert-dismissable fade in">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Success!</strong> Faculty registration successful.
+            <strong>Success!</strong> Updation successful.
         </div>
     </div>
     <form id="from2" runat="server">

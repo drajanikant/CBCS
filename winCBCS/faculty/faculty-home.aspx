@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentNavItems" runat="server">
     <li class="active"><a href="faculty-home.aspx">Home</a></li>
-    <li class=""><a href="subject-choice.aspx">Subject Choice</a></li>
+    <li class=""><a href="subject-choice.aspx">Course Choice</a></li>
     <li class=""><a href="faculty_profile.aspx">Profile</a></li>
    
     <li class="dropdown">

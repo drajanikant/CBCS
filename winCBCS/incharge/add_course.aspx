@@ -6,17 +6,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contentNavItems" runat="server">
     <li><a href="incharge-home.aspx" class="active">Home</a></li>
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Course <span class="caret"></span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Program <span class="caret"></span></a>
         <ul class="dropdown-menu">
-            <li><a href="add_course.aspx">Add Course</a></li>
-            <li><a href="incharge_listcourse.aspx">List Course</a></li>
+            <li><a href="add_course.aspx">Add Program</a></li>
+            <li><a href="incharge_listcourse.aspx">List Program</a></li>
         </ul>
     </li>
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Subject <span class="caret"></span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Course <span class="caret"></span></a>
         <ul class="dropdown-menu">
-            <li><a href="add_subject.aspx">Add Subject</a></li>
-            <li><a href="incharge_listsubject.aspx">List Subject</a></li>
+            <li><a href="add_subject.aspx">Add Course</a></li>
+            <li><a href="incharge_listsubject.aspx">List Course</a></li>
         </ul>
     </li>
     <li class="dropdown">
@@ -46,18 +46,18 @@
     <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong>Fail!</strong>
-        <label id="error_msg" runat="server">Course registration Failed.</label>.
+        <label id="error_msg" runat="server">Program registration Failed.</label>.
     </div>
     <div id="alert_success" runat="server" class="alert alert-success alert-dismissable fade in">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Success!</strong> Course registration successful.
+        <strong>Success!</strong> Program registration successful.
     </div>
 
 
 
     <div class="col-md-offset-6 ">
         <div class="panel panel-default">
-            <div class="panel-heading" style="font-size: 20px; text-align: center;">Add Cources</div>
+            <div class="panel-heading" style="font-size: 20px; text-align: center;">Add Program</div>
             <div class="panel-body">
 
                 <div id="add_course" runat="server" class="form-horizontal ">
@@ -65,7 +65,7 @@
                         <asp:Label ID="Label1" runat="server" CssClass="col-md-4 control-label" Text="Course Name"></asp:Label>
                         <div class="col-md-6">
                             <asp:DropDownList ID="drpCoursename" runat="server" CssClass="form-control" AutoPostBack="True">
-                                <asp:ListItem Value="0">Select Course</asp:ListItem>
+                                <asp:ListItem Value="0">Select Program</asp:ListItem>
                                 <asp:ListItem Value="1">Mechanical Engineering</asp:ListItem>
                                 <asp:ListItem Value="2">Electrical Engineering</asp:ListItem>
                                 <asp:ListItem Value="3">Electronics &amp; Telecommunication Engineering</asp:ListItem>

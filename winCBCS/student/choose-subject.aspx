@@ -6,8 +6,8 @@
 
     <li class=""><a href="student-home.aspx">Home</a></li>
     <!--<li class=""><a href="edit-student.aspx">Edit Profile</a></li>!-->
-    <li class="active"><a href="choose-subject.aspx">Choose Subject</a></li>
-    <li class=""><a href="subject-choices.aspx">Subject Choices</a></li>
+    <li class="active"><a href="choose-subject.aspx">Choose Course</a></li>
+    <li class=""><a href="subject-choices.aspx">Course Choices</a></li>
 
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi...<label id="student_name" runat="server">Student Name</label><span class="caret"></span></a>
@@ -19,18 +19,23 @@
     </li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
+    <div id="status" runat="server" class="alert alert-danger alert-dismissable fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>For Every semester minimum credits are 20 and maximum credits are 30...!</strong>
+        <label id="Label3" runat="server"></label>.
+    </div>
     <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong>Fail!</strong>
-        <label id="error_msg" runat="server">Subject registration Failed.</label>.
+        <label id="error_msg" runat="server">Course registration Failed.</label>.
     </div>
     <div id="alert_success" runat="server" class="alert alert-success alert-dismissable fade in">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Success!</strong> Subject registration successful.
+        <strong>Success!</strong> Course registration successful.
     </div>
     <div class="col-md-6">
         <div class="panel panel-default ">
-            <div class="panel-heading ">Choose Subject</div>
+            <div class="panel-heading ">Choose Course</div>
             <div class="panel-body ">
                 <div class="form-group">
                    
@@ -60,7 +65,7 @@
 
                 </div>
                 <div class="form-group">
-                    <asp:Label runat="server" Text="Core"></asp:Label>
+                    <asp:Label runat="server" Text="Core (Mandatory)"></asp:Label>
                     <div class="form-group">
                         <asp:ListBox ID="lbCore" runat="server" CssClass="form-control" SelectionMode="Multiple"></asp:ListBox>
                     </div>
@@ -78,7 +83,7 @@
             </div>
         </div>
         <div class="panel panel-default ">
-            <div class="panel-heading ">Choose Subject</div>
+            <div class="panel-heading ">Choose Course</div>
             <div class="panel-body ">
 
                 <div class="form-group">

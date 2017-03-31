@@ -16,6 +16,7 @@ namespace winCBCS.student
         {
             if (!IsPostBack)
             {
+                status.Visible = true;
                 alert_error.Visible = false;
                 alert_success.Visible = false;
                 LoadAcademicYear();

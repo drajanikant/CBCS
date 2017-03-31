@@ -6,17 +6,17 @@
     
      <li class="active"><a href="incharge-home.aspx">Home</a></li>
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Course <span class="caret"></span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Program <span class="caret"></span></a>
         <ul class="dropdown-menu">
-            <li><a href="add_course.aspx">Add Course</a></li>
-            <li><a href="incharge_listcourse.aspx">List Course</a></li>
+            <li><a href="add_course.aspx">Add Program</a></li>
+            <li><a href="incharge_listcourse.aspx">List Program</a></li>
         </ul>
     </li>
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Subject <span class="caret"></span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Course <span class="caret"></span></a>
         <ul class="dropdown-menu">
-            <li><a href="add_subject.aspx">Add Subject</a></li>
-            <li><a href="incharge_listsubject.aspx">List Subject</a></li>
+            <li><a href="add_subject.aspx">Add Course</a></li>
+            <li><a href="incharge_listsubject.aspx">List Course</a></li>
         </ul>
     </li>
     <li class="dropdown">
@@ -52,7 +52,7 @@
         </div>
         <div id="alert_success" runat="server" class="alert alert-success alert-dismissable fade in">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Success!</strong> Faculty profile updation successful.
+            <strong>Success!</strong> Profile updation successful.
         </div>
     </div>
      <div class="col-md-offset-6 col-md-6">
