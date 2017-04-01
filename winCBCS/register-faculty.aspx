@@ -46,6 +46,24 @@
             
             
             </div>
+                        <div class="form-group">
+                <label for="lblLabel">Label :</label>
+                <asp:TextBox ID="txtLabel" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger"  runat="server" ErrorMessage="Enter Label !!!" ControlToValidate="txtName" Display="Dynamic"></asp:RequiredFieldValidator>
+
+            
+            
+            </div>
+                        <div class="form-group">
+                <label for="lblName">Programme :</label>
+                <asp:DropDownList ID="drdProgramme" runat="server" CssClass="form-control">
+                   
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger"  runat="server" ErrorMessage="select Programme !!!" ControlToValidate="drdDesignation" Display="Dynamic"></asp:RequiredFieldValidator>
+            
+            
+            
+            </div>
             <div class="form-group">
                 <label for="txtEmail">Email :</label>
                 <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
@@ -69,7 +87,7 @@
                 <label for="email">Experiance :</label>
                 <asp:TextBox ID="txtExperiance" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldexp" CssClass="text-danger"  runat="server" ErrorMessage="Enter Experiance !!!" ControlToValidate="txtExperiance" Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:RangeValidator ID="RangeValidatorExp" runat="server" ErrorMessage="Enter Valid Experiance" ControlToValidate="txtExperiance" CssClass="text-danger" MaximumValue="35" MinimumValue="0" ></asp:RangeValidator>
+                <asp:RangeValidator ID="RangeValidatorExp" runat="server" ErrorMessage="Enter Valid Experiance" ControlToValidate="txtExperiance" CssClass="text-danger" MaximumValue="35" MinimumValue="0" Type="Integer" ></asp:RangeValidator>
             
             </div>
             <div class="form-group">
