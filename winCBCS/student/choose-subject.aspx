@@ -83,7 +83,7 @@
                 <div class="form-group">
                     <asp:Label runat="server" Text="Foundation Course"></asp:Label>
                     <div class="form-group">
-                        <asp:CheckBoxList ID="cbFoundation" runat="server" AutoPostBack="True" >
+                        <asp:CheckBoxList ID="cbFoundation" runat="server" AutoPostBack="True" OnSelectedIndexChanged="cbFoundation_SelectedIndexChanged" >
                     </asp:CheckBoxList>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                 <div class="form-group">
                     <asp:Label runat="server" Text="Core(Mandatory) Course"></asp:Label>
                     <div class="form-group">
-                        <asp:ListBox ID="lbCore" runat="server" CssClass="form-control" SelectionMode="Multiple"></asp:ListBox>
+                        <asp:ListBox ID="lbCore" runat="server" CssClass="form-control" SelectionMode="Single" ></asp:ListBox>
                     </div>
                 </div>
 
@@ -117,7 +117,7 @@
                 <div class="form-group">
                     <asp:Label runat="server" Text="Elective"></asp:Label>
 
-                    <asp:CheckBoxList ID="cboxprogramcourse" runat="server" AutoPostBack="True" >
+                    <asp:CheckBoxList ID="cboxprogramcourse" runat="server" AutoPostBack="True" OnSelectedIndexChanged="cboxprogramcourse_SelectedIndexChanged" >
                     </asp:CheckBoxList>
                 </div>
             </div>
