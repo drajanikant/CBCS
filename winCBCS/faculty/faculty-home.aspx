@@ -35,8 +35,8 @@
         <div>
             <div class="form-group">
                 <label for="email">Programe :</label>
-                <asp:DropDownList ID="drpprogram" runat="server" CssClass="form-control" Enabled="true" >
-                      <asp:ListItem Value="0"></asp:ListItem> 
+                <asp:DropDownList ID="drpprogram" runat="server" CssClass="form-control" Enabled="true" OnSelectedIndexChanged="drpprogram_SelectedIndexChanged" AutoPostBack="True" >
+                      <asp:ListItem Value="0">--Select--</asp:ListItem> 
                    
                 </asp:DropDownList>
 
@@ -47,7 +47,7 @@
         <div class="form-group">
                 <label for="email">Semester :</label>
                 <asp:DropDownList ID="drpsem" runat="server" CssClass="form-control" Enabled="true" >
-                      <asp:ListItem Value="0"></asp:ListItem> 
+                      <asp:ListItem Value="0">--Select--</asp:ListItem> 
                    
                 </asp:DropDownList>
 

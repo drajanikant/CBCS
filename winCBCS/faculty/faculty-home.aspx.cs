@@ -12,7 +12,7 @@ namespace winCBCS.faculty
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        string faculty_id;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             CheckCookies();
@@ -22,7 +22,6 @@ namespace winCBCS.faculty
                 
                     alert_error.Visible = false;
                     alert_success.Visible = false;
-                    LoadAcademicSem();
                     LoadCourse();
                     
                 
@@ -35,7 +34,7 @@ namespace winCBCS.faculty
 
         private void LoadCourse()
         {
-            drpprogram.DataSource = DBConnection.GetDataTable("select distinct course_name from timetable_course where course_academic_year ");
+            drpprogram.DataSource = DBConnection.GetDataTable("select distinct course_name from timetable_course ");
             drpprogram.DataTextField = "course_name";
             drpprogram.DataValueField = "course_name";
             drpprogram.DataBind();
@@ -44,7 +43,7 @@ namespace winCBCS.faculty
 
         private void LoadAcademicSem()
         {
-            drpsem.DataSource = DBConnection.GetDataTable("select distinct course_academic_sem from timetable_course");
+            drpsem.DataSource = DBConnection.GetDataTable("select distinct course_academic_sem from timetable_course where course_name='"+drpprogram.SelectedItem.ToString()+"'");
             drpsem.DataTextField = "course_academic_sem";
             drpsem.DataValueField = "course_academic_sem";
             drpsem.DataBind();
@@ -68,6 +67,15 @@ namespace winCBCS.faculty
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             Response.Redirect("faculty_timetable.aspx");
+        }
+
+        protected void drpprogram_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            drpsem.DataSource = DBConnection.GetDataTable("select distinct course_academic_sem from timetable_course where course_name='" + drpprogram.SelectedItem.ToString() + "'");
+            drpsem.DataTextField = "course_academic_sem";
+            drpsem.DataValueField = "course_academic_sem";
+            drpsem.DataBind();
+            drpsem.Items.Insert(0, "");
         }
     }
 }

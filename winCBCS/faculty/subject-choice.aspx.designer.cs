@@ -76,22 +76,22 @@ namespace winCBCS.faculty {
         protected global::System.Web.UI.WebControls.Panel panl_choice;
         
         /// <summary>
-        /// drdAcademicYear control.
+        /// drpCurriculum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drdAcademicYear;
+        protected global::System.Web.UI.WebControls.DropDownList drpCurriculum;
         
         /// <summary>
-        /// RequiredFieldAcademicYear control.
+        /// RequiredFieldValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldAcademicYear;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// drdCourseName control.
@@ -110,6 +110,24 @@ namespace winCBCS.faculty {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldCourseName;
+        
+        /// <summary>
+        /// drdAcademicYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drdAcademicYear;
+        
+        /// <summary>
+        /// RequiredFieldAcademicYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldAcademicYear;
         
         /// <summary>
         /// drdSemester control.

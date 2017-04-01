@@ -18,11 +18,13 @@ namespace winCBCS.faculty
         protected void Page_Load(object sender, EventArgs e)
         {
             CheckCookies();
+            
             if (!IsPostBack)
             {
                 alert_error.Visible = false;
                 alert_success.Visible = false;
-                LoadAcademicYear();
+                LoadCurriculum();
+                
                 LoadList();
             }
         }
@@ -54,7 +56,7 @@ namespace winCBCS.faculty
         {
             try
             {
-                drdAcademicYear.DataSource = DBConnection.GetDataTable("Select distinct course_academic_year from timetable_course ");
+                drdAcademicYear.DataSource = DBConnection.GetDataTable("Select distinct course_academic_year from timetable_course where ");
                 drdAcademicYear.DataTextField = "course_academic_year";
                 drdAcademicYear.DataValueField = "course_academic_year";
                 drdAcademicYear.DataBind();
@@ -71,11 +73,11 @@ namespace winCBCS.faculty
 
             try
             {
-                    drdCourseName.DataSource = DBConnection.GetDataTable("select distinct course_name from timetable_course where course_academic_year ");
-                    drdCourseName.DataTextField = "course_name";
-                    drdCourseName.DataValueField = "course_name";
-                    drdCourseName.DataBind();
-                    drdCourseName.Items.Insert(0, "");
+                drdSemester.DataSource = DBConnection.GetDataTable("select distinct course_academic_sem from timetable_course where program_curriculum='" + drpCurriculum.SelectedItem.ToString() + "' and course_name='" + drdCourseName.SelectedItem.ToString() + "' and course_academic_year='"+drdAcademicYear.SelectedItem.ToString()+"'");
+                drdSemester.DataTextField = "course_academic_sem";
+                drdSemester.DataValueField = "course_academic_sem";
+                drdSemester.DataBind();
+                drdSemester.Items.Insert(0, "");
             }
             catch (Exception)
             {
@@ -88,24 +90,24 @@ namespace winCBCS.faculty
         {
             try
             {
-                drdSemester.DataSource = DBConnection.GetDataTable("select distinct course_academic_sem from timetable_course");
-                drdSemester.DataTextField = "course_academic_sem";
-                drdSemester.DataValueField = "course_academic_sem";
-                drdSemester.DataBind();
-                drdSemester.Items.Insert(0, "");
+                drdAcademicYear.DataSource = DBConnection.GetDataTable("select distinct course_academic_year from timetable_course where program_curriculum='" + drpCurriculum.SelectedItem.ToString() + "' and course_name='" + drdCourseName.SelectedItem.ToString() + "' ");
+                drdAcademicYear.DataTextField = "course_academic_year";
+                drdAcademicYear.DataValueField = "course_academic_year";
+                drdAcademicYear.DataBind();
+                drdAcademicYear.Items.Insert(0, "");
             }
             catch (Exception)
             {
                 
             }
-           
+            
         }
 
         protected void drdSemester_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                drdSubjetName.DataSource = DBConnection.GetDataTable("select * from timetable_subject where (academic_year='" + drdAcademicYear.SelectedItem + "' and course_name ='" + drdCourseName.SelectedItem + "' and subject_semester='"+drdSemester.SelectedItem+"')");
+                drdSubjetName.DataSource = DBConnection.GetDataTable("select  * from timetable_subject where (course_curriculum='" + drpCurriculum.SelectedItem.ToString() + "' and course_name ='" + drdCourseName.SelectedItem.ToString() + "' and academic_year='" + drdAcademicYear.SelectedItem.ToString() + "' and subject_semester='"+drdSemester.SelectedItem.ToString()+"')");
                 drdSubjetName.DataTextField = "subject_name";
                 drdSubjetName.DataValueField = "subject_id";
                 drdSubjetName.DataBind();
@@ -233,6 +235,44 @@ namespace winCBCS.faculty
             {
 
             }
+        }
+
+        protected void drpCurriculum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadCourse();
+        }
+
+        private void LoadCourse()
+        {
+            try
+            {
+                drdCourseName.DataSource = DBConnection.GetDataTable("select distinct course_name from timetable_course where program_curriculum='"+drpCurriculum.SelectedItem.ToString()+"' ");
+                drdCourseName.DataTextField = "course_name";
+                drdCourseName.DataValueField = "course_name";
+                drdCourseName.DataBind();
+                drdCourseName.Items.Insert(0, "");
+            }
+            catch (Exception)
+            {
+
+
+            } 
+        }
+        private void LoadCurriculum()
+        {
+            try
+            {
+                drpCurriculum.DataSource = DBConnection.GetDataTable("select distinct program_curriculum from timetable_course");
+                drpCurriculum.DataTextField = "program_curriculum";
+                drpCurriculum.DataValueField = "program_curriculum";
+                drpCurriculum.DataBind();
+                drpCurriculum.Items.Insert(0, "");
+            }
+            catch (Exception)
+            {
+
+            }
+            
         }
     }
 }

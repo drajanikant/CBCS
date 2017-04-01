@@ -91,6 +91,7 @@
     <Content Include="student\subject-choices.aspx" />
     <Content Include="student\student-home.aspx" />
     <Content Include="student\student-profile.aspx" />
+    <Content Include="student\student_timetable.aspx" />
     <Content Include="Web.config" />
     <Content Include="login.aspx" />
     <Content Include="register-instructor.aspx" />
@@ -300,6 +301,13 @@
     </Compile>
     <Compile Include="student\student-profile.aspx.designer.cs">
       <DependentUpon>student-profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="student\student_timetable.aspx.cs">
+      <DependentUpon>student_timetable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="student\student_timetable.aspx.designer.cs">
+      <DependentUpon>student_timetable.aspx</DependentUpon>
     </Compile>
     <Compile Include="utility\DBConnection.cs" />
     <Compile Include="logout.aspx.cs">

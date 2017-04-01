@@ -32,19 +32,31 @@
             <asp:Panel ID="panl_choice" runat="server"  class=" panel panel-primary">
                 <div class="panel-body">
                     <div class="panel-body">
-                        <div class="form-group">
-                            <label for="email">Academic Year:</label>
-                            <asp:DropDownList ID="drdAcademicYear" runat="server" CssClass="form-control"  AutoPostBack="True" OnSelectedIndexChanged="drdAcademicYear_SelectedIndexChanged"></asp:DropDownList>
-                       <asp:RequiredFieldValidator ID="RequiredFieldAcademicYear" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Academic Year !!!" ControlToValidate="drdAcademicYear" Display="Dynamic" ValidationGroup="akki"></asp:RequiredFieldValidator>
 
-                             </div>
-                        <div class="form-group">
+                         <div class="form-group">
+                            <label for="email">Curriculum :</label>
+                            <asp:DropDownList ID="drpCurriculum" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="drpCurriculum_SelectedIndexChanged" ></asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Select Curriculum !!!" ControlToValidate="drpCurriculum" Display="Dynamic" ValidationGroup="akki"></asp:RequiredFieldValidator>
+
+                        
+                        </div>
+
+                         <div class="form-group">
                             <label for="email">Program Name:</label>
                             <asp:DropDownList ID="drdCourseName" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="drdCourseName_SelectedIndexChanged"></asp:DropDownList>
                         <asp:RequiredFieldValidator ID="RequiredFieldCourseName" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Course Name !!!" ControlToValidate="drdCourseName" Display="Dynamic" ValidationGroup="akki"></asp:RequiredFieldValidator>
 
                         
                         </div>
+                        
+
+                        <div class="form-group">
+                            <label for="email">Academic Year:</label>
+                            <asp:DropDownList ID="drdAcademicYear" runat="server" CssClass="form-control"  AutoPostBack="True" OnSelectedIndexChanged="drdAcademicYear_SelectedIndexChanged"></asp:DropDownList>
+                       <asp:RequiredFieldValidator ID="RequiredFieldAcademicYear" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Academic Year !!!" ControlToValidate="drdAcademicYear" Display="Dynamic" ValidationGroup="akki"></asp:RequiredFieldValidator>
+
+                             </div>
+                       
                         <div class="form-group">
                             <label for="email">Semester:</label>
                             <asp:DropDownList ID="drdSemester" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="drdSemester_SelectedIndexChanged"></asp:DropDownList>
@@ -94,14 +106,25 @@
 
             <asp:DataList ID="dataSubjectChoice" runat="server" CssClass="table table-striped" OnItemCommand="dataSubjectChoice_ItemCommand">
                 <HeaderTemplate>
-
-                    <th>Program Name</th>
+                    <th>Program</th>
+                    <th>Semester</th>
+                    <th>Academic Year</th>
+                    <th>Course Name</th>
+                    
+                    <th>Credits</th>
+                    
                     <th>Priority</th>
                     <th>Exprience</th>
                     <th>Operations</th>
+                    
                 </HeaderTemplate>
                 <ItemTemplate>
+                    <td><%# Eval("course_name") %></td>
+                    <td><%# Eval("subject_semester") %></td>
+                    <td><%# Eval("academic_year") %></td>
                     <td><%# Eval("subject_name") %></td>
+                    
+                    <td><%# Eval("subject_credit") %></td>
                     <td><%# Eval("priority") %></td>
                     <td><%# Eval("exprience") %></td>
                     <td>
