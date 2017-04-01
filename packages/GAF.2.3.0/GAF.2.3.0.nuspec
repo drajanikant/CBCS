@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>GAF</id>
+    <version>2.3.0</version>
+    <title>GAF</title>
+    <authors>John Newcombe</authors>
+    <owners>John Newcombe</owners>
+    <licenseUrl>https://johnnewcombe.net/gaf/section/99</licenseUrl>
+    <projectUrl>https://johnnewcombe.net/gaf</projectUrl>
+    <iconUrl>https://johnnewcombe.net/Content/nuget/GAF128.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This is a simple to use Genetic Algorithm Framework for .Net. See the project page for details on how to use this package.</description>
+    <summary />
+    <releaseNotes>This version of the GAF introduces the new RequiresEvaluatedPopulation boolean property to the IGeneticOperator interface. This interface is used to create custom genetic operators. If your project uses custom genetic operators, please add this property to these operators, returning a value of true. This new property can be used to reduce the number of evaluations undertaken, see the 'Custom Operators section of the documentation for further details.</releaseNotes>
+    <copyright>Copyright John Newcombe 2016</copyright>
+    <tags>Genetic Algorithm GA Mono PCL</tags>
+  </metadata>
+</package>
