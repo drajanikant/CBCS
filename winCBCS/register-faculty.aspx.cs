@@ -72,7 +72,8 @@ namespace winCBCS
                         {
                             hour=18;
                         }
-            cmd.Parameters.AddWithValue("?faculty_workinghour",hour);
+                        //Response.Write("" + hour);
+            cmd.Parameters.AddWithValue("?faculty_workinghour", hour);
             cmd.Parameters.AddWithValue("?faculty_email",txtEmail.Text);
             cmd.Parameters.AddWithValue("?faculty_password",txtConfirm.Text);
             cmd.Parameters.AddWithValue("?faculty_name", txtName.Text);

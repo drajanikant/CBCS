@@ -56,7 +56,7 @@
             </div>
                         <div class="form-group">
                 <label for="lblName">Programme :</label>
-                <asp:DropDownList ID="drdProgramme" runat="server" CssClass="form-control">
+                <asp:DropDownList ID="drdProgramme" runat="server" CssClass="form-control" AutoPostBack="True">
                    
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger"  runat="server" ErrorMessage="select Programme !!!" ControlToValidate="drdDesignation" Display="Dynamic"></asp:RequiredFieldValidator>
