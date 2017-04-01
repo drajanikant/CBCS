@@ -55,7 +55,7 @@
                              </div>
                         <div class="form-group">
                             <label for="email">Course Name:</label>
-                            <asp:DropDownList ID="drdSubjetName" runat="server" CssClass="form-control" ></asp:DropDownList>
+                            <asp:DropDownList ID="drdSubjetName" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="drdSubjetName_SelectedIndexChanged" ></asp:DropDownList>
                        <asp:RequiredFieldValidator ID="RequiredFieldSubname" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Course !!!" ControlToValidate="drdSubjetName" Display="Dynamic" ValidationGroup="akki"></asp:RequiredFieldValidator>
 
                             

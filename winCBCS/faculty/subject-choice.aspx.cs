@@ -7,12 +7,14 @@ using System.Web.UI.WebControls;
 using winCBCS.utility;
 using System.Configuration;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace winCBCS.faculty
 {
     public partial class WebForm4 : System.Web.UI.Page
     {
         string faculty_id;
+       static string course_code;
         protected void Page_Load(object sender, EventArgs e)
         {
             CheckCookies();
@@ -118,11 +120,12 @@ namespace winCBCS.faculty
         protected void btnAddSubject_Click(object sender, EventArgs e)
         {
             MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["cbcs_connection"].ConnectionString);
-            MySqlCommand cmd = new MySqlCommand("insert into faculty_choice ( faculty_id, subject_id, priority, exprience) values( ?faculty_id, ?subject_id, ?priority, ?exprience)", con);
+            MySqlCommand cmd = new MySqlCommand("insert into faculty_choice ( faculty_id, subject_id, priority, exprience,course_code) values( ?faculty_id, ?subject_id, ?priority, ?exprience, ?course_code)", con);
             cmd.Parameters.AddWithValue("?faculty_id", faculty_id);
             cmd.Parameters.AddWithValue("?subject_id", drdSubjetName.SelectedValue);
             cmd.Parameters.AddWithValue("?priority", drdProirity.Text);
             cmd.Parameters.AddWithValue("?exprience", txtSubExperiance.Text);
+            cmd.Parameters.AddWithValue("?course_code", course_code);
             
             try
             {
@@ -214,6 +217,22 @@ namespace winCBCS.faculty
             drdProirity.SelectedIndex = -1;
             drdSubjetName.SelectedIndex = -1;
 
+        }
+
+        protected void drdSubjetName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRow dr = DBConnection.GetDataRow("select * from timetable_subject where subject_id ='"+drdSubjetName.SelectedValue+"'");
+                if (dr!=null)
+                {
+                    course_code = dr["subject_code"].ToString();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }
