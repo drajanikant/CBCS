@@ -57,15 +57,23 @@
         <asp:DataList ID="data_cources" runat="server" CssClass="table table-striped" OnItemCommand="data_cources_ItemCommand" OnSelectedIndexChanged="data_cources_SelectedIndexChanged">
             <HeaderTemplate>
 
+                
+                <th>Curriculum</th>
                 <th>Program Name</th>
                 <th>Academic Year</th>
                 <th>Semester</th>
+                <th>Maximum Credits</th>
+                <th>Minimum Credits</th>
                 <th>Operations</th>
             </HeaderTemplate>
             <ItemTemplate>
+                 <td><%# Eval("program_curriculum") %></td>
                 <td><%# Eval("course_name") %></td>
+               
                 <td><%# Eval("course_academic_year") %></td>
                 <td><%# Eval("course_academic_sem") %></td>
+                 <td><%# Eval("sem_max_credits") %></td>
+                 <td><%# Eval("sem_min_credits") %></td>
                 <td>
                     <asp:Button ID="btnDelete" runat="server" CommandName="data_delete" CommandArgument='<%# Eval("id") %>' Text="Delete" CssClass="btn btn-danger" />
                 </td>

@@ -61,8 +61,20 @@
             <div class="panel-body">
 
                 <div id="add_course" runat="server" class="form-horizontal ">
+
                     <div class="form-group">
-                        <asp:Label ID="Label1" runat="server" CssClass="col-md-4 control-label" Text="Course Name"></asp:Label>
+                        <asp:Label ID="Label4" runat="server" CssClass="col-md-4 control-label" Text="Curriculum ">
+
+                        </asp:Label>
+                        <div class="col-md-6">
+                            <asp:TextBox ID="txtCurriculum" CssClass="col-md-2 form-control" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger" runat="server" ErrorMessage="Enter Curriculum !!!" ControlToValidate="txtCurriculum" Display="Dynamic"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <asp:Label ID="Label1" runat="server" CssClass="col-md-4 control-label" Text="Programe Name"></asp:Label>
                         <div class="col-md-6">
                             <asp:DropDownList ID="drpCoursename" runat="server" CssClass="form-control" AutoPostBack="True">
                                 <asp:ListItem Value="0">Select Program</asp:ListItem>
@@ -77,7 +89,9 @@
 
                         </div>
                     </div>
-                    <div class="form-group">
+
+
+                   <div class="form-group">
                         <asp:Label ID="Label2" runat="server" CssClass="col-md-4 control-label" Text="Academic Year">
 
                         </asp:Label>
@@ -85,7 +99,10 @@
                             <asp:TextBox ID="txtAcademicyear" CssClass="col-md-2 form-control" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldyear" CssClass="text-danger" runat="server" ErrorMessage="Enter Academic Year !!!" ControlToValidate="txtAcademicyear" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
-                    </div>
+                      </div>
+
+
+                   
                     <div class="form-group">
                         <asp:Label ID="Label3" runat="server" CssClass="col-md-4 control-label" Text="Acedemic Semester">
                         </asp:Label>
@@ -106,10 +123,31 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldsem" CssClass="text-danger" InitialValue="0" runat="server" ErrorMessage="Enter Academic Sem!!!" ControlToValidate="drpAcademicsemester" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
                     </div>
+           
+
+                   <div class="form-group">
+                    <asp:Label ID="Label6" runat="server" CssClass="col-md-4 control-label" Text="Minimum credits required">
+
+                    </asp:Label>
+                    <div class="col-md-6">
+                        <asp:TextBox ID="txtMinCredits" CssClass="col-md-2 form-control" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" CssClass="text-danger" runat="server" ErrorMessage="Enter Minimum Credits!!!" ControlToValidate="txtMinCredits" Display="Dynamic"></asp:RequiredFieldValidator>
+                    </div>
                 </div>
 
 
+                <div class="form-group">
+                    <asp:Label ID="Label5" runat="server" CssClass="col-md-4 control-label" Text="Maximum credits required">
 
+                    </asp:Label>
+                    <div class="col-md-6">
+                        <asp:TextBox ID="txtMaxcredits" CssClass="col-md-2 form-control" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" runat="server" ErrorMessage="Enter Maximum Credits!!!" ControlToValidate="txtMaxcredits" Display="Dynamic"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+
+                 
+                         </div>
                 <div class="form-group">
                     <div class="col-md-2"></div>
 

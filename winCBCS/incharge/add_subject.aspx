@@ -67,10 +67,27 @@
 
    <div class="col-md-6 ">
     <div class="panel panel-default">
-  <div class="panel-heading" style="font-size: 20px; text-align: center;">Add Program</div>
+  <div class="panel-heading" style="font-size: 20px; text-align: center;">Add Course</div>
   <div class="panel-body">
     
        <div class="form-horizontal ">
+
+           
+        <div class="form-group">
+          <asp:Label ID="Label8" runat="server" CssClass="col-md-4 control-label" Text="Curriculum"></asp:Label>
+            <div class="col-md-6">
+                <asp:DropDownList ID="drpCurriculum" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="drpCurriculum_SelectedIndexChanged" >
+                    <asp:ListItem Value="0">--Select--</asp:ListItem>
+                   
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Select Curriculum !!!" ControlToValidate="drpCurriculum" Display="Dynamic" ></asp:RequiredFieldValidator>
+
+            </div>
+            </div>
+
+
+
+
         <div class="form-group">
           <asp:Label ID="Label1" runat="server" CssClass="col-md-4 control-label" Text="Academic Year"></asp:Label>
             <div class="col-md-6">
@@ -84,7 +101,7 @@
             </div>
 
             <div class="form-group">
-               <asp:Label ID="Label13" runat="server" CssClass="col-md-4 control-label" Text="Course Name">
+               <asp:Label ID="Label13" runat="server" CssClass="col-md-4 control-label" Text="Programe Name">
                </asp:Label>
              <div class="col-md-6">
                  <asp:DropDownList ID="drpCourse" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="drpCourse_SelectedIndexChanged">
@@ -125,9 +142,11 @@
              <div class="col-md-6">
                  <asp:DropDownList ID="drpSubjectType" runat="server" CssClass="form-control" AutoPostBack="True" >
                      <asp:ListItem Value="">-- Select --</asp:ListItem>
-                 
-                     <asp:ListItem Value="1">Core Course</asp:ListItem>
-                     <asp:ListItem Value="2">Elective Course</asp:ListItem>
+                
+                       <asp:ListItem Value="1">Foundation Course</asp:ListItem>
+                     <asp:ListItem Value="2">Core Course</asp:ListItem>
+                     <asp:ListItem Value="3">Programe/Course Elective Course</asp:ListItem>
+                     <asp:ListItem Value="4">Institute/Open Elective Course</asp:ListItem>
                  
                  </asp:DropDownList>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Select Course type!!!" ControlToValidate="drpSubjectType" Display="Dynamic"></asp:RequiredFieldValidator>

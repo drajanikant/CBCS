@@ -37,18 +37,19 @@
         <div class="panel panel-default ">
             <div class="panel-heading ">Choose Course</div>
             <div class="panel-body ">
-                <div class="form-group">
-                   
-                    <asp:Label ID="Email" runat="server" Text="Acadamic Year"></asp:Label>
-                    <asp:DropDownList ID="drdYear" class="form-control" runat="server" placeholder="select any one" required="required" OnSelectedIndexChanged="drdYear_SelectedIndexChanged" AutoPostBack="True">
-                    </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="RequiredFieldAcademicYear" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Academic Year !!!" ControlToValidate="drdYear" Display="Dynamic"></asp:RequiredFieldValidator>
 
-                
-                
+                 <div class="form-group">
+                   
+                    <asp:Label ID="Label4" runat="server" Text="Select Curriculum"></asp:Label>
+                    <asp:DropDownList ID="drpCurriculum" class="form-control" runat="server" placeholder="select any one" required="required" OnSelectedIndexChanged="drpCurriculum_SelectedIndexChanged" AutoPostBack="True">
+                    </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Curriculum !!!" ControlToValidate="drpCurriculum" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
+
+
+
                 <div class="form-group">
-                    <asp:Label ID="Label1" runat="server" Text="Course Name"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text="Programe Name"></asp:Label>
                     <asp:DropDownList ID="drdCourse" class="form-control" runat="server" placeholder="select any one" required="required" AutoPostBack="True" OnSelectedIndexChanged="drdCourse_SelectedIndexChanged">
                    
                      </asp:DropDownList>
@@ -56,6 +57,18 @@
                       <asp:RequiredFieldValidator ID="RequiredFieldCourse" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Course Name !!!" ControlToValidate="drdCourse" Display="Dynamic"></asp:RequiredFieldValidator>
 
                 </div>
+
+                
+                <div class="form-group">
+                   
+                    <asp:Label ID="Email" runat="server" Text="Acadamic Year"></asp:Label>
+                    <asp:DropDownList ID="drdYear" class="form-control" runat="server" placeholder="select any one" required="required" OnSelectedIndexChanged="drdYear_SelectedIndexChanged" AutoPostBack="True">
+                    </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldAcademicYear" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Academic Year !!!" ControlToValidate="drdYear" Display="Dynamic"></asp:RequiredFieldValidator>
+                 </div>
+
+
+
                 <div class="form-group">
                     <asp:Label ID="Label2" runat="server" Text="Semester"></asp:Label>
                     <asp:DropDownList ID="drdSem" class="form-control" runat="server" placeholder="select any one" required="required" AutoPostBack="True" OnSelectedIndexChanged="drdSem_SelectedIndexChanged">
@@ -64,12 +77,26 @@
 
 
                 </div>
+
+
+                
                 <div class="form-group">
-                    <asp:Label runat="server" Text="Core (Mandatory)"></asp:Label>
+                    <asp:Label runat="server" Text="Foundation Course"></asp:Label>
+                    <div class="form-group">
+                        <asp:CheckBoxList ID="cbFoundation" runat="server" AutoPostBack="True" >
+                    </asp:CheckBoxList>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <asp:Label runat="server" Text="Core(Mandatory) Course"></asp:Label>
                     <div class="form-group">
                         <asp:ListBox ID="lbCore" runat="server" CssClass="form-control" SelectionMode="Multiple"></asp:ListBox>
                     </div>
                 </div>
+
+
 
 
             </div>
@@ -82,14 +109,30 @@
                 
             </div>
         </div>
+
         <div class="panel panel-default ">
-            <div class="panel-heading ">Choose Course</div>
+            <div class="panel-heading ">Choose Programe Course</div>
             <div class="panel-body ">
 
                 <div class="form-group">
                     <asp:Label runat="server" Text="Elective"></asp:Label>
 
-                    <asp:CheckBoxList ID="cbElective" runat="server" AutoPostBack="True" OnSelectedIndexChanged="cbElective_SelectedIndexChanged">
+                    <asp:CheckBoxList ID="cboxprogramcourse" runat="server" AutoPostBack="True" >
+                    </asp:CheckBoxList>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="panel panel-default ">
+            <div class="panel-heading ">Choose Open Course</div>
+            <div class="panel-body ">
+
+                <div class="form-group">
+                    <asp:Label runat="server" Text="Elective"></asp:Label>
+
+                    <asp:CheckBoxList ID="cbOpen" runat="server" AutoPostBack="True" OnSelectedIndexChanged="cbElective_SelectedIndexChanged">
                     </asp:CheckBoxList>
                 </div>
             </div>

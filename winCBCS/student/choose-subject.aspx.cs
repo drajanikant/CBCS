@@ -19,14 +19,18 @@ namespace winCBCS.student
                 status.Visible = true;
                 alert_error.Visible = false;
                 alert_success.Visible = false;
-                LoadAcademicYear();
-                LoadCourse();
+                LoadCurriculum();
+                
+                
             }
             CheckCookies();
         }
         static String studentId;
+        int foundation_course_credit = 0;
         static int core_credits = 0;
-        int elective_credits = 0;
+        int programe_elective_credits = 0;
+        int institute_course_elective_credits = 0;
+        int total_credits_per_semester = 0;
         private void CheckCookies()
         {
             HttpCookie ck = Request.Cookies["StudentCookie"];
@@ -45,7 +49,7 @@ namespace winCBCS.student
         {
             try
             {
-                drdYear.DataSource = DBConnection.GetDataTable("Select distinct course_academic_year from timetable_course ");
+                drdYear.DataSource = DBConnection.GetDataTable("Select distinct course_academic_year from timetable_course where program_curriculum='" + drpCurriculum.SelectedItem.ToString() + "' and course_name='"+drdCourse.SelectedItem.ToString()+"'");
                 drdYear.DataTextField = "course_academic_year";
                 drdYear.DataValueField = "course_academic_year";
                 drdYear.DataBind();
@@ -57,11 +61,27 @@ namespace winCBCS.student
             }
         }
 
+        private void LoadCurriculum()
+        {
+            try
+            {
+                drpCurriculum.DataSource = DBConnection.GetDataTable("Select distinct program_curriculum from timetable_course ");
+                drpCurriculum.DataTextField = "program_curriculum";
+                drpCurriculum.DataValueField = "program_curriculum";
+                drpCurriculum.DataBind();
+                drpCurriculum.Items.Insert(0, "");
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
         protected void drdYear_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                drdSem.DataSource = DBConnection.GetDataTable("select  course_academic_sem from timetable_course where course_academic_year='" + drdYear.SelectedItem.ToString() + "'");
+                drdSem.DataSource = DBConnection.GetDataTable("select  course_academic_sem from timetable_course where course_academic_year='" + drdYear.SelectedItem.ToString() + "' and program_curriculum='" + drpCurriculum.SelectedItem.ToString() + "'");
                 drdSem.DataTextField = "course_academic_sem";
                 drdSem.DataValueField = "course_academic_sem";
                 drdSem.DataBind();
@@ -76,29 +96,25 @@ namespace winCBCS.student
         {
             
 
-            String SubjectType = "2";
+            String SubjectType = "1";
             try
             {
-                MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["cbcs_connection"].ConnectionString);
-                MySqlCommand cmd = new MySqlCommand("select subject_id, CONCAT(subject_name,' [ credits : ', subject_credit,' ]') as name  from timetable_subject where subject_type='" + SubjectType + "' and subject_semester='" + drdSem.SelectedItem.ToString() + "' ", con);
-                con.Open();
-                MySqlDataReader dr = cmd.ExecuteReader();
-
-                cbElective.DataTextField = "name";
-                cbElective.DataValueField = "subject_id";
-                cbElective.DataSource = dr;
-                cbElective.DataBind();
-                con.Close();
+                cbFoundation.DataSource = DBConnection.GetDataTable("select subject_id, CONCAT(subject_name,' [ credits : ', subject_credit,' ]') as name  from timetable_subject where subject_type='" + SubjectType + "' and course_curriculum='" + drpCurriculum.SelectedItem.ToString() + "' and course_name='" + drdCourse.SelectedItem.ToString() + "'  and academic_year='" + drdYear.SelectedItem.ToString() + "' and subject_semester='" + drdSem.SelectedItem.ToString() + "' ");
+                cbFoundation.DataTextField = "name";
+                cbFoundation.DataValueField = "subject_id";
+                cbFoundation.DataBind();
+               
+                //con.Close();
             }
             catch (Exception)
             {
             }
 
 
-            String type = "1";
+            SubjectType = "2";
             try
             {
-                lbCore.DataSource = DBConnection.GetDataTable("select subject_id, CONCAT(subject_name,' [ credits : ', subject_credit,' ]') as name from timetable_subject where subject_type='" + type + "' and subject_semester='" + drdSem.SelectedItem.ToString() + "' and course_name='" + drdCourse.SelectedItem.ToString() + "'");
+                lbCore.DataSource = DBConnection.GetDataTable("select subject_id, CONCAT(subject_name,' [ credits : ', subject_credit,' ]') as name  from timetable_subject where subject_type='" + SubjectType + "' and course_curriculum='" + drpCurriculum.SelectedItem.ToString() + "' and course_name='" + drdCourse.SelectedItem.ToString() + "' and academic_year='"+drdYear.SelectedItem.ToString()+"' and subject_semester='"+ drdSem.SelectedItem.ToString()+ "' ");
                 lbCore.DataTextField = "name";
                 lbCore.DataValueField = "subject_id";
                 lbCore.DataBind();
@@ -106,7 +122,33 @@ namespace winCBCS.student
             catch (Exception)
             {
             }
+
+            SubjectType = "3";
+            try
+            {
+                cboxprogramcourse.DataSource = DBConnection.GetDataTable("select subject_id, CONCAT(subject_name,' [ credits : ', subject_credit,' ]') as name  from timetable_subject where subject_type='" + SubjectType + "' and course_curriculum='" + drpCurriculum.SelectedItem.ToString() + "' and course_name='" + drdCourse.SelectedItem.ToString() + "'  and academic_year='" + drdYear.SelectedItem.ToString() + "' and subject_semester='" + drdSem.SelectedItem.ToString() + "' ");
+                cboxprogramcourse.DataTextField = "name";
+                cboxprogramcourse.DataValueField = "subject_id";
+                cboxprogramcourse.DataBind();
+            }
+            catch (Exception)
+            {
+            }
+
+            SubjectType = "4";
+            try
+            {
+                lbCore.DataSource = DBConnection.GetDataTable("select subject_id, CONCAT(subject_name,' [ credits : ', subject_credit,' ]') as name  from timetable_subject where subject_type='" + SubjectType + "' and course_curriculum='" + drpCurriculum.SelectedItem.ToString() + "' and  academic_year='" + drdYear.SelectedItem.ToString() + "' and  subject_semester='" + drdSem.SelectedItem.ToString() + "' ");
+                lbCore.DataTextField = "name";
+                lbCore.DataValueField = "subject_id";
+                lbCore.DataBind();
+            }
+            catch (Exception)
+            {
+            }
+
             core_credits = 0;
+            
             foreach (ListItem item in lbCore.Items)
             {
                 string input = item.ToString();
@@ -119,11 +161,11 @@ namespace winCBCS.student
             total_credit.InnerHtml= ""+core_credits;
         }
 
-        private void LoadCourse()
+        private void LoadPrograme()
         {
             try
             {
-                drdCourse.DataSource = DBConnection.GetDataTable("select distinct course_name from timetable_course ");
+                drdCourse.DataSource = DBConnection.GetDataTable("select distinct course_name from timetable_course where program_curriculum='" + drpCurriculum.SelectedItem.ToString() + "' ");
                 drdCourse.DataTextField = "course_name";
                 drdCourse.DataValueField = "course_name";
                 drdCourse.DataBind();
@@ -134,7 +176,7 @@ namespace winCBCS.student
 
         protected void drdCourse_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            LoadAcademicYear();
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -151,7 +193,7 @@ namespace winCBCS.student
             }
             else
             {
-                foreach (ListItem item in cbElective.Items)
+                foreach (ListItem item in cbOpen.Items)
                 {
 
                     if (item.Selected)
@@ -220,7 +262,7 @@ namespace winCBCS.student
         }
         protected void cbElective_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (ListItem item in cbElective.Items)
+            foreach (ListItem item in cbOpen.Items)
             {
                 
                 if (item.Selected)
@@ -229,12 +271,28 @@ namespace winCBCS.student
                     string pattern = ": ";            // Split on hyphens
 
                     string[] substrings = Regex.Split(input, pattern);
-                    elective_credits += Int32.Parse(substrings[1].Substring(0, 1));
+                    programe_elective_credits += Int32.Parse(substrings[1].Substring(0, 1));
                 }
 
               
             }
-            total_credit.InnerHtml = "" + (core_credits + elective_credits);
+            total_credit.InnerHtml = "" + (core_credits + programe_elective_credits);
+        }
+
+        protected void drpCurriculum_(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void drpCurriculum_SelectedIndex(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void drpCurriculum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            LoadPrograme();
         }
 
     }

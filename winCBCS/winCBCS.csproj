@@ -74,6 +74,7 @@
     <Content Include="faculty\faculty_profile.aspx" />
     <Content Include="faculty\change-pass.aspx" />
     <Content Include="faculty\subject-choice.aspx" />
+    <Content Include="faculty\faculty_timetable.aspx" />
     <Content Include="incharge\add_course.aspx" />
     <Content Include="incharge\add_subject.aspx" />
     <Content Include="incharge\add_venue.aspx" />
@@ -139,6 +140,13 @@
     </Compile>
     <Compile Include="faculty\subject-choice.aspx.designer.cs">
       <DependentUpon>subject-choice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="faculty\faculty_timetable.aspx.cs">
+      <DependentUpon>faculty_timetable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="faculty\faculty_timetable.aspx.designer.cs">
+      <DependentUpon>faculty_timetable.aspx</DependentUpon>
     </Compile>
     <Compile Include="incharge\add_course.aspx.cs">
       <DependentUpon>add_course.aspx</DependentUpon>

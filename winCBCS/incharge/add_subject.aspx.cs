@@ -15,14 +15,16 @@ namespace winCBCS.incharge
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            CheckCookies();
+            
             if(!IsPostBack)
             {
                 alert_error.Visible = false;
                 alert_success.Visible = false;
-                               LoadAcademicYear();
+                LoadCurriculum();
+                
                            }
-            CheckCookies();
+           
         }
 
         private void CheckCookies()
@@ -71,6 +73,10 @@ namespace winCBCS.incharge
                 
             }
         }
+
+
+
+      
         protected void btnClear_Click(object sender, EventArgs e)
         {
             txtCredit.Text = "";
@@ -147,6 +153,22 @@ namespace winCBCS.incharge
             }
            
         }
+        private void LoadCurriculum()
+        {
+            try
+            {
+                drpCurriculum.DataSource = DBConnection.GetDataTable("select distinct program_curriculum from timetable_course");
+                drpCurriculum.DataTextField = "program_curriculum";
+                drpCurriculum.DataValueField = "program_curriculum";
+                drpCurriculum.DataBind();
+                drpCurriculum.Items.Insert(0, "");
+            }
+            catch (Exception)
+            {
+
+
+            }
+        }
 
         protected void drpCourse_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -168,9 +190,20 @@ namespace winCBCS.incharge
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+
+            int total_credits =Int32.Parse(txtCredit.Text);
             
+            int lecture_credits=Int32.Parse(txtLecturecredit.Text);
+            int practical_credits=Int32.Parse(txtpracticalcredit.Text);
+                int tutorial_credits=Int32.Parse(txtTutorialcredit.Text);
+            if(total_credits != (lecture_credits+practical_credits+tutorial_credits))
+            {
+                Response.Write("<script>alert('Invalid Credits..!')</script>");
+                
+            }
+            else { 
             MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["cbcs_connection"].ConnectionString);
-            MySqlCommand cmd = new MySqlCommand("insert into timetable_subject (subject_name, subject_semester, subject_maxstudent, subject_minstudent, subject_credit, academic_year, course_name, lacture_credit, practical_credit, tutorial_credit,subject_code,subject_type) values( ?subject_name, ?subject_semester, ?subject_maxstudent, ?subject_minstudent, ?subject_credit, ?academic_year, ?course_name, ?lacture_credit, ?practical_credit, ?tutorial_credit,?subject_code,?subject_type)", con);
+            MySqlCommand cmd = new MySqlCommand("insert into timetable_subject (subject_name, subject_semester, subject_maxstudent, subject_minstudent, subject_credit, academic_year, course_name, lacture_credit, practical_credit, tutorial_credit,subject_code,subject_type,course_curriculum) values( ?subject_name, ?subject_semester, ?subject_maxstudent, ?subject_minstudent, ?subject_credit, ?academic_year, ?course_name, ?lacture_credit, ?practical_credit, ?tutorial_credit,?subject_code,?subject_type,?course_curriculum)", con);
             cmd.Parameters.AddWithValue("?subject_name", txtSubject.Text);
             cmd.Parameters.AddWithValue("?subject_semester", drpAcademicsemester.SelectedItem.ToString());
             cmd.Parameters.AddWithValue("?subject_maxstudent", txtMaxstudent.Text);
@@ -183,6 +216,7 @@ namespace winCBCS.incharge
             cmd.Parameters.AddWithValue("?tutorial_credit", txtTutorialcredit.Text);
             cmd.Parameters.AddWithValue("?subject_code", txtSubjectCode.Text);
             cmd.Parameters.AddWithValue("?subject_type",drpSubjectType.SelectedValue);
+            cmd.Parameters.AddWithValue("?course_curriculum", drpCurriculum.SelectedItem.ToString());
 
             try
             {
@@ -214,7 +248,26 @@ namespace winCBCS.incharge
                     cmd.Dispose();
                 }
             }
+            }//endof if
         
+        }
+
+        protected void drpCurriculum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                drpAcademicsemester.DataSource = DBConnection.GetDataTable("select distinct course_academic_sem from timetable_course where (program_curriculum='" + drpCurriculum.SelectedItem.ToString() + "' and course_academic_year='" + drpAcademicyear.SelectedItem.ToString() + "')");
+                drpAcademicsemester.DataTextField = "course_academic_sem";
+                drpAcademicsemester.DataValueField = "course_academic_sem";
+                drpAcademicsemester.DataBind();
+                drpAcademicsemester.Items.Insert(0, "");
+            }
+            catch (Exception)
+            {
+
+
+            }
+            LoadAcademicYear();
         }
     }
 }
