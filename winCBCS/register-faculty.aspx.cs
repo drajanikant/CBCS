@@ -19,7 +19,23 @@ namespace winCBCS
             {
                 alert_error.Visible = false;
                 alert_success.Visible = false;
-                
+                LoadProgramme();
+            }
+            
+        }
+        private void LoadProgramme()
+        {
+            try
+            {
+                drdProgramme.DataSource = DBConnection.GetDataTable("select distinct course_name from timetable_course");
+                drdProgramme.DataTextField = "course_name";
+                drdProgramme.DataValueField = "course_name";
+                drdProgramme.DataBind();
+                drdProgramme.Items.Insert(0, "");
+            }
+            catch (Exception)
+            {
+
             }
         }
 
@@ -27,12 +43,15 @@ namespace winCBCS
         {
             int hour=0;
             MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["cbcs_connection"].ConnectionString);
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO timetable_faculty( faculty_empid,faculty_name, faculty_designation, faculty_experience, faculty_qualification, faculty_workinghour, faculty_email, faculty_password) values ( ?faculty_empid,?faculty_name, ?faculty_designation, ?faculty_experience, ?faculty_qualification, ?faculty_workinghour, ?faculty_email, ?faculty_password)", con);
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO timetable_faculty( faculty_empid,faculty_name,faculty_label,faculty_programme, faculty_designation, faculty_experience, faculty_qualification, faculty_workinghour, faculty_email, faculty_password) values ( ?faculty_empid,?faculty_name, ?faculty_label,?faculty_programme, ?faculty_designation, ?faculty_experience, ?faculty_qualification, ?faculty_workinghour, ?faculty_email, ?faculty_password)", con);
 
             cmd.Parameters.AddWithValue("?faculty_empid",txtEmpId.Text);
             cmd.Parameters.AddWithValue("?faculty_designation",drdDesignation.Text);
             cmd.Parameters.AddWithValue("?faculty_experience",txtExperiance.Text);
             cmd.Parameters.AddWithValue("?faculty_qualification",txtQualification.Text);
+
+            cmd.Parameters.AddWithValue("?faculty_label",txtLabel.Text);
+            cmd.Parameters.AddWithValue("?faculty_programme",drdProgramme.Text);
                         if(drdDesignation.Text.Equals("H.O.D."))
                         {
                             hour=10;
