@@ -61,6 +61,8 @@
        <div class="form-horizontal ">
         <div class="form-group">
         
+           
+
          <div class="form-group">
               <asp:Label ID="Label2" runat="server" CssClass="col-md-4 control-label" Text="Venue Name">
 
@@ -77,7 +79,7 @@
                  <asp:DropDownList ID="drpVenuetype" runat="server" CssClass="form-control">
                      <asp:ListItem Value="0">Select Venue Type</asp:ListItem>
                      <asp:ListItem Value="1">Classroom</asp:ListItem>
-                     <asp:ListItem Value="2">Labs</asp:ListItem>
+                     <asp:ListItem Value="2">Lab</asp:ListItem>
                      
                  </asp:DropDownList>
                  <asp:RequiredFieldValidator ID="RequiredFieldtype" CssClass="text-danger" InitialValue="0" runat="server" ErrorMessage="Select Venue Type!!!" ControlToValidate="drpVenuetype"></asp:RequiredFieldValidator>
@@ -85,7 +87,30 @@
              </div>
        </div>
       
-           
+        
+            <div class="form-group">
+               <asp:Label ID="Label1" runat="server" CssClass="col-md-4 control-label" Text="Venue Location">
+               </asp:Label>
+             <div class="col-md-6">
+                 <asp:DropDownList ID="drpDepartment" runat="server" CssClass="form-control">
+                     <asp:ListItem Value="0">--Select--</asp:ListItem>
+                    
+                 </asp:DropDownList>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger" InitialValue="0" runat="server" ErrorMessage="Select Venue Location!!!" ControlToValidate="drpDepartment"></asp:RequiredFieldValidator>
+             </div>
+             </div>
+              
+
+             <div class="form-group">
+              <asp:Label ID="Label4" runat="server" CssClass="col-md-4 control-label" Text="Venue Capacity">
+
+              </asp:Label>
+             <div class="col-md-6">
+                 <asp:TextBox ID="txtCapacity" CssClass="col-md-2 form-control" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" runat="server" ErrorMessage="Enter Venue Capacity !!!" ControlToValidate="txtCapacity"></asp:RequiredFieldValidator>
+             </div>
+             </div>
+
              
            <div class="form-group">
             <div class="col-md-2"></div>

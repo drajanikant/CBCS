@@ -61,15 +61,19 @@
 
                 <th>Venue Name</th>
                 <th>Venue Type</th>
-                
+                <th>Venue Location</th>
+                <th>Venue Capacity</th>
+                <th>Venue Availability</th>
                 <th>Operations</th>
             </HeaderTemplate>
             <ItemTemplate>
                 <td><%# Eval("venue_name") %></td>
                 <td><%# Eval("venue_type") %></td>
-                
+                <td><%# Eval("venue_location") %></td>
+                <td><%# Eval("venue_capacity") %></td>
+                <td><%# ((int)Eval("venue_availability")==1? "Yes":"No")%></td>
                 <td>
-                    <asp:Button ID="btnDelete" runat="server" CommandName="data_delete" CommandArgument='<%# Eval("vanue_id") %>' Text="Delete" CssClass="btn btn-danger" />
+                    <asp:Button ID="btnDelete" runat="server" CommandName="data_delete" CommandArgument='<%# Eval("venue_id") %>' Text="Delete" CssClass="btn btn-danger" />
                 </td>
             </ItemTemplate>
         </asp:DataList>

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
 using System.Configuration;
+using winCBCS.utility;
 
 
 namespace winCBCS.incharge
@@ -18,8 +19,19 @@ namespace winCBCS.incharge
             {
                 alert_error.Visible = false;
                 alert_success.Visible = false;
+                Loaddata();
             }
             CheckCookies();
+        }
+
+        private void Loaddata()
+        {
+
+            drpDepartment.DataSource = DBConnection.GetDataTable("select distinct course_name from timetable_course");
+            drpDepartment.DataTextField = "course_name";
+            drpDepartment.DataValueField = "course_name";
+            drpDepartment.DataBind();
+            drpDepartment.Items.Insert(0, "");
         }
 
         private void CheckCookies()
@@ -37,9 +49,12 @@ namespace winCBCS.incharge
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["cbcs_connection"].ConnectionString);
-            MySqlCommand cmd = new MySqlCommand("insert into timetable_venue (venue_name, venue_type) values (?venue_name, ?venue_type)", con);
+            MySqlCommand cmd = new MySqlCommand("insert into timetable_venue (venue_name, venue_type,venue_location,venue_capacity) values (?venue_name, ?venue_type,?venue_location,?venue_capacity)", con);
             cmd.Parameters.AddWithValue("?venue_name",txtVenuename.Text);
             cmd.Parameters.AddWithValue("?venue_type",drpVenuetype.SelectedItem.ToString());
+            cmd.Parameters.AddWithValue("?venue_location", drpDepartment.SelectedItem.ToString());
+            cmd.Parameters.AddWithValue("?venue_capacity",txtCapacity.Text);
+
 
             try
             {
