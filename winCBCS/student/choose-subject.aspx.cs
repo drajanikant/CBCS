@@ -26,11 +26,11 @@ namespace winCBCS.student
             CheckCookies();
         }
         static String studentId;
-        int foundation_course_credit = 0;
+        static int foundation_course_credit = 0;
         static int core_credits = 0;
-        int programe_elective_credits = 0;
-        int institute_course_elective_credits = 0;
-        int total_credits_per_semester = 0;
+        static int programe_elective_credits = 0;
+        static int institute_course_elective_credits = 0;
+        static int total_credits_per_semester = 0;
         private void CheckCookies()
         {
             HttpCookie ck = Request.Cookies["StudentCookie"];
@@ -138,10 +138,10 @@ namespace winCBCS.student
             SubjectType = "4";
             try
             {
-                lbCore.DataSource = DBConnection.GetDataTable("select subject_id, CONCAT(subject_name,' [ credits : ', subject_credit,' ]') as name  from timetable_subject where subject_type='" + SubjectType + "' and course_curriculum='" + drpCurriculum.SelectedItem.ToString() + "' and  academic_year='" + drdYear.SelectedItem.ToString() + "' and  subject_semester='" + drdSem.SelectedItem.ToString() + "' ");
-                lbCore.DataTextField = "name";
-                lbCore.DataValueField = "subject_id";
-                lbCore.DataBind();
+                cbOpen.DataSource = DBConnection.GetDataTable("select subject_id, CONCAT(subject_name,' [ credits : ', subject_credit,' ]') as name  from timetable_subject where subject_type='" + SubjectType + "' and course_curriculum='" + drpCurriculum.SelectedItem.ToString() + "' and  academic_year='" + drdYear.SelectedItem.ToString() + "' and  subject_semester='" + drdSem.SelectedItem.ToString() + "' ");
+                cbOpen.DataTextField = "name";
+                cbOpen.DataValueField = "subject_id";
+                cbOpen.DataBind();
             }
             catch (Exception)
             {
@@ -218,6 +218,25 @@ namespace winCBCS.student
                     int credits = Int32.Parse(substrings[1].Substring(0, 1));
                     AddSubjectChoice(credits, Int32.Parse(item.Value));
                 }
+
+                foreach (ListItem item in cbFoundation.Items)
+                {
+                    string input = item.ToString();
+                    string pattern = ": ";            // Split on hyphens
+
+                    string[] substrings = Regex.Split(input, pattern);
+                    int credits = Int32.Parse(substrings[1].Substring(0, 1));
+                    AddSubjectChoice(credits, Int32.Parse(item.Value));
+                }
+                foreach (ListItem item in cboxprogramcourse.Items)
+                {
+                    string input = item.ToString();
+                    string pattern = ": ";            // Split on hyphens
+
+                    string[] substrings = Regex.Split(input, pattern);
+                    int credits = Int32.Parse(substrings[1].Substring(0, 1));
+                    AddSubjectChoice(credits, Int32.Parse(item.Value));
+                }
             }
         }
 
@@ -262,6 +281,7 @@ namespace winCBCS.student
         }
         protected void cbElective_SelectedIndexChanged(object sender, EventArgs e)
         {
+            institute_course_elective_credits = 0;
             foreach (ListItem item in cbOpen.Items)
             {
                 
@@ -271,12 +291,13 @@ namespace winCBCS.student
                     string pattern = ": ";            // Split on hyphens
 
                     string[] substrings = Regex.Split(input, pattern);
-                    programe_elective_credits += Int32.Parse(substrings[1].Substring(0, 1));
+                    institute_course_elective_credits += Int32.Parse(substrings[1].Substring(0, 1));
                 }
 
               
             }
-            total_credit.InnerHtml = "" + (core_credits + programe_elective_credits);
+            total_credits_per_semester = foundation_course_credit + core_credits + programe_elective_credits + institute_course_elective_credits;
+            total_credit.InnerHtml = "" + (total_credits_per_semester);
         }
 
         protected void drpCurriculum_(object sender, EventArgs e)
@@ -294,6 +315,50 @@ namespace winCBCS.student
 
             LoadPrograme();
         }
+
+        protected void cbFoundation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foundation_course_credit = 0;
+            foreach (ListItem item in cbFoundation.Items)
+            {
+
+                if (item.Selected)
+                {
+                    string input = item.ToString();
+                    string pattern = ": ";            // Split on hyphens
+
+                    string[] substrings = Regex.Split(input, pattern);
+                    foundation_course_credit += Int32.Parse(substrings[1].Substring(0, 1));
+                }
+
+
+            }
+            total_credits_per_semester = foundation_course_credit+core_credits+programe_elective_credits+institute_course_elective_credits;
+            total_credit.InnerHtml = "" + total_credits_per_semester;
+        }
+
+        protected void cboxprogramcourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            programe_elective_credits = 0;
+            foreach (ListItem item in cboxprogramcourse.Items)
+            {
+
+                if (item.Selected)
+                {
+                    string input = item.ToString();
+                    string pattern = ": ";            // Split on hyphens
+
+                    string[] substrings = Regex.Split(input, pattern);
+                     programe_elective_credits+= Int32.Parse(substrings[1].Substring(0, 1));
+                }
+
+
+            }
+            total_credits_per_semester = foundation_course_credit + core_credits + programe_elective_credits + institute_course_elective_credits;
+            total_credit.InnerHtml = "" + total_credits_per_semester;
+        }
+
+       
 
     }
 }
