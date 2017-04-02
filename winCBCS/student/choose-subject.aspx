@@ -67,7 +67,7 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldAcademicYear" CssClass="text-danger" InitialValue="" runat="server" ErrorMessage="Enter Academic Year !!!" ControlToValidate="drdYear" Display="Dynamic"></asp:RequiredFieldValidator>
                  </div>
 
-
+                
 
                 <div class="form-group">
                     <asp:Label ID="Label2" runat="server" Text="Semester"></asp:Label>

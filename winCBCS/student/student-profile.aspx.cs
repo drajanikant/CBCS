@@ -21,7 +21,7 @@ namespace winCBCS.student
             {
                 alert_error.Visible = false;
                 alert_success.Visible = false;
-
+                LoadData();
             }
             
         }
