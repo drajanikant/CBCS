@@ -19,9 +19,8 @@
     
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
-    
-    <form id="form1" runat="server">
-        <div class="col-md-6 ">
+   
+
      <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong>Fail!</strong>
@@ -31,9 +30,29 @@
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong>Success!</strong> Program Added successful.
     </div>
+            
 
-    
+            <div class="col-md-6 ">
+     <div class="panel panel-default">
+  <div class="panel-heading" >Time Table</div>
+    <div class="panel-body">
+        <div class="form-horizontal ">
+    <div class="col-md-6">
         <div>
+
+            <div class="form-group">
+                <label for="email">Curriculum :</label>
+
+                <asp:DropDownList ID="drpCurriculum" runat="server" CssClass="form-control" Enabled="true" OnSelectedIndexChanged="drpCurriculum_SelectedIndexChanged" AutoPostBack="True" >
+                      <asp:ListItem Value="0">--Select--</asp:ListItem> 
+                   
+                </asp:DropDownList>
+
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger"  runat="server" InitialValue="0" ErrorMessage="Select Curriculum !!!" ControlToValidate="drpCurriculum" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                 </div>
+        </div>
+
             <div class="form-group">
                 <label for="email">Programe :</label>
                 <asp:DropDownList ID="drpprogram" runat="server" CssClass="form-control" Enabled="true" OnSelectedIndexChanged="drpprogram_SelectedIndexChanged" AutoPostBack="True" >
@@ -44,9 +63,22 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldprgm" CssClass="text-danger"  runat="server" InitialValue="0" ErrorMessage="Enter Program !!!" ControlToValidate="drpprogram" Display="Dynamic"></asp:RequiredFieldValidator>
 
                  </div>
-        </div>
+        
+             <div class="form-group">
+                <label for="email">Academic Year :</label>
+                <asp:DropDownList ID="drpYear" runat="server" CssClass="form-control" Enabled="true" OnSelectedIndexChanged="drpYear_SelectedIndexChanged" AutoPostBack="True" >
+                      <asp:ListItem Value="0">--Select--</asp:ListItem> 
+                   
+                </asp:DropDownList>
+
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" CssClass="text-danger"  runat="server" InitialValue="0" ErrorMessage="Select Year!!!" ControlToValidate="drpYear" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                 </div>
+       
+
+
         <div class="form-group">
-                <label for="email">Semester :</label>
+                <label for="email">Academic Semester :</label>
                 <asp:DropDownList ID="drpsem" runat="server" CssClass="form-control" Enabled="true" >
                       <asp:ListItem Value="0">--Select--</asp:ListItem> 
                    
@@ -61,7 +93,7 @@
             <div class="col-md-2"></div>
                
             <div class="col-md-6">
-             <asp:Button ID="btnAdd" runat="server" Text="Show Time Table" CssClass="btn btn-default" OnClick="btnAdd_Click"  />
+             <asp:Button ID="btnAdd" runat="server" Text="Show Time Table" CssClass="btn btn-default" OnClick="btnAdd_Click"   />
             </div>
              <div></div>
                <div class="form-group">
@@ -71,11 +103,14 @@
              
             </div>
              </div>   
-</div>
-
-    </form>
-
    
+</div>
+   </div></div>
+        </div>
+        </div>
+    
+       
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
 </asp:Content>
