@@ -85,6 +85,8 @@
     <Content Include="incharge\incharge_listsubject.aspx" />
     <Content Include="incharge\incharge_listvenue.aspx" />
     <Content Include="incharge\incharge_profile.aspx" />
+    <Content Include="incharge\facultytimetable.aspx" />
+    <Content Include="incharge\studenttimetable.aspx" />
     <Content Include="student\change-pass-student.aspx" />
     <Content Include="student\choose-subject.aspx" />
     <Content Include="student\edit-student.aspx" />
@@ -218,6 +220,20 @@
     </Compile>
     <Compile Include="incharge\incharge_profile.aspx.designer.cs">
       <DependentUpon>incharge_profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="incharge\facultytimetable.aspx.cs">
+      <DependentUpon>facultytimetable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="incharge\facultytimetable.aspx.designer.cs">
+      <DependentUpon>facultytimetable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="incharge\studenttimetable.aspx.cs">
+      <DependentUpon>studenttimetable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="incharge\studenttimetable.aspx.designer.cs">
+      <DependentUpon>studenttimetable.aspx</DependentUpon>
     </Compile>
     <Compile Include="population\Faculty.cs" />
     <Compile Include="population\Strudent.cs" />

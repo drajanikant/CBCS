@@ -26,6 +26,15 @@
         </ul>
     </li>
     
+    
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Time Table <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="facultytimetable.aspx">For Faculty</a></li>
+            <li><a href="studenttimetable.aspx">For Student</a></li>
+        </ul>
+    </li>
+
   <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi...<label id="incharge_name" runat="server">Incharge Name</label> <span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -137,15 +146,12 @@
             <HeaderTemplate>
 
                 <th>Student Name</th>
-                <th>Foundation Credits</th>
-                <th>Core Credits</th>
-                <th>Programe Credits</th>
-               <th>Open Credits</th>
+                
                 <th>Total Credits</th>
             </HeaderTemplate>
             <ItemTemplate>
                 <td><%# Eval("student_name") %></td>
-                <td><%# Eval("totalcredit") %></td>
+                <td><%# Eval("credits") %></td>
                
                
             </ItemTemplate>

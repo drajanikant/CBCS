@@ -27,6 +27,13 @@
         </ul>
     </li>
     
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Time Table <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="facultytimetable.aspx">For Faculty</a></li>
+            <li><a href="studenttimetable.aspx">For Student</a></li>
+        </ul>
+    </li>
   <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">hi... <span id="incharge_name" runat="server"> Incharge Name </span> <span class="caret"></span></a>
         <ul class="dropdown-menu">
