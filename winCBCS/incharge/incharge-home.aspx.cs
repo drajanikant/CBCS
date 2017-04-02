@@ -16,15 +16,23 @@ namespace winCBCS.incharge
         {
 
             CheckCookies();
+           
+            
             if(!IsPostBack)
             {
+                
                 alert_error.Visible = false;
                 alert_success.Visible = false;
+                data_cources.Visible = false;
+                datastud.Visible = false;
                 LoadProgram();
+
+              
+                
             }
         }
 
-        public void display()
+        public void display()//faculty
         {
 
 
@@ -37,6 +45,7 @@ namespace winCBCS.incharge
             {
 
             }
+            
 
         }
         private void LoadProgram()
@@ -60,7 +69,13 @@ namespace winCBCS.incharge
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+
+            
             display();
+       data_cources.Visible = true;
+       datastud.Visible = false;
+            
+            
         }
 
       
@@ -82,22 +97,27 @@ namespace winCBCS.incharge
 
         protected void btnStud_Click(object sender, EventArgs e)
         {
+           
             display1();
+            datastud.Visible = true;
+            data_cources.Visible = false;
+            
         }
 
-        public void display1()
+        public void display1()//student
         {
 
 
             try
             {
-                datastud.DataSource = DBConnection.GetDataTable("SELECT timetable_student.student_name,sum(timetable_subject.subject_credit),sum(timetable_subject.lacture_credit),sum(timetable_subject.practical_credit),sum(timetable_subject.tutorial_credit) FROM timetable_subject,timetable_choice, timetable_student where timetable_subject.subject_id=timetable_choice.choice_subjectid and timetable_student.student_id=timetable_choice.choice_studid and (timetable_subject.subject_type=1 or timetable_subject.subject_type=2 or timetable_subject.subject_type=3) group by timetable_student.student_name");
+                datastud.DataSource = DBConnection.GetDataTable("SELECT timetable_student.student_name,sum(timetable_subject.subject_credit) as credits FROM timetable_subject,timetable_choice, timetable_student where timetable_subject.subject_id=timetable_choice.choice_subjectid and timetable_student.student_id=timetable_choice.choice_studid group by timetable_student.student_name");
                 datastud.DataBind();
             }
             catch (Exception)
             {
 
             }
+            
 
         }
     }
