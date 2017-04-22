@@ -181,15 +181,15 @@ namespace winCBCS.student
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (Int32.Parse(total_credit.InnerHtml) > 30)
+            if (Int32.Parse(total_credit.InnerHtml) > 35)
             {
                 alert_error.Visible = true;
-                error_msg.InnerHtml = "Credit limit not exccides than 30 credits";
+                error_msg.InnerHtml = "Credit limit not exccides than 35 credits";
             }
-            else if (Int32.Parse(total_credit.InnerHtml) < 20)
+            else if (Int32.Parse(total_credit.InnerHtml) < 25)
             {
                 alert_error.Visible = true;
-                error_msg.InnerHtml = "Credit limit not less than 20 credits";
+                error_msg.InnerHtml = "Credit limit not less than 25 credits";
             }
             else
             {

@@ -31,21 +31,23 @@
             <asp:DataList ID="timetable" runat="server" CssClass="table table-striped"  >
                 <HeaderTemplate>
                      
-                    <th>Time Slot</th>
-                    <th>Monday</th>
-                    <th>Tuesday</th>
-                    <th>Wednesday</th>
-                    <th>Thursday</th>
-                    <th>Friday</th>
-                    <th>Saturday</th>
+                    <th>class_room</th>
+                    <th>day</th>
+                    <th>time_slot</th>
+                    <th>course_name</th>
+                    <th>faculty_name</th>
+                    
                   <th>Sunday</th>
                     
                         
                 </HeaderTemplate>
 
                 <ItemTemplate>
-                    <td></td>
-                    <td></td>
+                     <th><%# Eval("class_room") %></th>
+                    <th><%# Eval("day") %></th>
+                    <th><%# Eval("time_slot") %></th>
+                    <th><%# Eval("course_name") %></th>
+                    <th><%# Eval("faculty_name") %></th>
                 </ItemTemplate>
 
             </asp:DataList>

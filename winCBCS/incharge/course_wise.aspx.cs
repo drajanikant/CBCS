@@ -7,17 +7,17 @@ using System.Web.UI.WebControls;
 using winCBCS.utility;
 namespace winCBCS.incharge
 {
-    public partial class WebForm12 : System.Web.UI.Page
+    public partial class WebForm10 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
                 LoadProgram();
-                LoadClass();
+                
             }
         }
-
         private void LoadProgram()
         {
             try
@@ -34,24 +34,6 @@ namespace winCBCS.incharge
             }
 
         }
-
-        private void LoadClass()
-        {
-            try
-            {
-                DropDownList1.DataSource = DBConnection.GetDataTable("select distinct faculty_name from timetable_faculty ");
-                DropDownList1.DataTextField = "faculty_name";
-                DropDownList1.DataValueField = "faculty_name";
-                DropDownList1.DataBind();
-                DropDownList1.Items.Insert(0, "");
-            }
-            catch (Exception)
-            {
-
-            }
-
-        }
-
         protected void drpCurriculum_SelectedIndexChanged(object sender, EventArgs e)
         {
             drpprogram.DataSource = DBConnection.GetDataTable("select distinct course_name from timetable_course where program_curriculum='" + drpCurriculum.SelectedItem.ToString() + "' ");
@@ -81,12 +63,16 @@ namespace winCBCS.incharge
 
         protected void drpsem_SelectedIndexChanged1(object sender, EventArgs e)
         {
-
+            DropDownList1.DataSource = DBConnection.GetDataTable("select distinct course_name from timetable_dept where semester='" + drpsem.SelectedItem.ToString() + "' ");
+            DropDownList1.DataTextField = "course_name";
+            DropDownList1.DataValueField = "course_name";
+            DropDownList1.DataBind();
+            DropDownList1.Items.Insert(0, "");
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            timetable.DataSource = DBConnection.GetDataTable("SELECT * FROM timetable_dept where  semester like '" + drpsem.SelectedItem + "' and faculty_name like '" + DropDownList1.SelectedItem + "'");
+            timetable.DataSource = DBConnection.GetDataTable("SELECT * FROM timetable_dept where  semester like '" + drpsem.SelectedItem.ToString() + "' and course_name like '" + DropDownList1.Text + "'");
             timetable.DataBind();
         }
     }

@@ -18,17 +18,19 @@ namespace winCBCS.faculty
             CheckCookies();
             if(!IsPostBack)
             {
-                
-                
-                    alert_error.Visible = false;
-                    alert_success.Visible = false;
-                    LoadCourse();
-                    
-                
+                 LoadCourse();
+                 LoadCurriculum();
             }
         }
 
-       
+        private void LoadCurriculum()
+        {
+            drpCurriculum.DataSource = DBConnection.GetDataTable("select distinct program_curriculum from timetable_course ");
+            drpCurriculum.DataTextField = "program_curriculum";
+            drpCurriculum.DataValueField = "program_curriculum";
+            drpCurriculum.DataBind();
+            drpCurriculum.Items.Insert(0, "");
+        }
 
 
 
@@ -66,12 +68,31 @@ namespace winCBCS.faculty
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            Response.Redirect("faculty_timetable.aspx");
+            timetable.DataSource = DBConnection.GetDataTable("SELECT * FROM timetable_dept where  semester like '" + drpsem.SelectedItem + "' and faculty_name like '" + faculty_name.InnerHtml + "' order by `day` ");
+            timetable.DataBind();
         }
 
         protected void drpprogram_SelectedIndexChanged(object sender, EventArgs e)
         {
-            drpsem.DataSource = DBConnection.GetDataTable("select distinct course_academic_sem from timetable_course where course_name='" + drpprogram.SelectedItem.ToString() + "'");
+            drpYear.DataSource = DBConnection.GetDataTable("select distinct course_academic_year from timetable_course where program_curriculum='" + drpCurriculum.SelectedItem.ToString() + "'and course_name='" + drpprogram.SelectedItem.ToString() + "' ");
+            drpYear.DataTextField = "course_academic_year";
+            drpYear.DataValueField = "course_academic_year";
+            drpYear.DataBind();
+            drpYear.Items.Insert(0, "");
+        }
+
+        protected void drpCurriculum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            drpprogram.DataSource = DBConnection.GetDataTable("select distinct course_name from timetable_course where program_curriculum='" + drpCurriculum.SelectedItem.ToString() + "' ");
+            drpprogram.DataTextField = "course_name";
+            drpprogram.DataValueField = "course_name";
+            drpprogram.DataBind();
+            drpprogram.Items.Insert(0, "");
+        }
+
+        protected void drpYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            drpsem.DataSource = DBConnection.GetDataTable("select distinct course_academic_sem from timetable_course where program_curriculum='" + drpCurriculum.SelectedItem.ToString() + "'and course_name='" + drpprogram.SelectedItem.ToString() + "' and course_academic_year='" + drpYear.SelectedItem.ToString() + "' ");
             drpsem.DataTextField = "course_academic_sem";
             drpsem.DataValueField = "course_academic_sem";
             drpsem.DataBind();

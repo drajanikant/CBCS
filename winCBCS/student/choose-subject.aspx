@@ -21,7 +21,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
     <div id="status" runat="server" class="alert alert-danger alert-dismissable fade in">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>For Every semester minimum credits are 20 and maximum credits are 30...!</strong>
+        <strong>For Every semester minimum credits are 25 and maximum credits are 35...!</strong>
         <label id="Label3" runat="server"></label>.
     </div>
     <div id="alert_error" runat="server" class="alert alert-danger alert-dismissable fade in">

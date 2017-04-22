@@ -72,7 +72,9 @@ namespace winCBCS.student
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            Response.Redirect("student_timetable.aspx");
+            timetable.DataSource = DBConnection.GetDataTable("SELECT * FROM timetable_dept where  semester like '" + drpsem.SelectedItem + "' order by `day` ");
+            timetable.DataBind();
+           
         }
 
         protected void drpYear_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,6 +84,11 @@ namespace winCBCS.student
             drpsem.DataValueField = "course_academic_sem";
             drpsem.DataBind();
             drpsem.Items.Insert(0, "");
+        }
+
+        protected void drpsem_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+
         }
     }
 }

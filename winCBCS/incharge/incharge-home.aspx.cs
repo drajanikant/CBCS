@@ -20,65 +20,30 @@ namespace winCBCS.incharge
             
             if(!IsPostBack)
             {
-                
                 alert_error.Visible = false;
                 alert_success.Visible = false;
-                data_cources.Visible = false;
-                datastud.Visible = false;
-                LoadProgram();
-
-              
-                
+               
+                LoadProgram();                
             }
         }
 
-        public void display()//faculty
-        {
-
-
-            try
-            {
-                data_cources.DataSource = DBConnection.GetDataTable("SELECT timetable_faculty.faculty_name,sum(timetable_subject.subject_credit) as totalcredit FROM faculty_choice, timetable_subject, timetable_faculty where timetable_subject.subject_id=faculty_choice.subject_id and timetable_faculty.faculty_id=faculty_choice.faculty_id group by timetable_faculty.faculty_name");
-                data_cources.DataBind();
-            }
-            catch (Exception)
-            {
-
-            }
-            
-
-        }
+       
         private void LoadProgram()
         {
-            drpprogram.DataSource = DBConnection.GetDataTable("select distinct course_name from timetable_course ");
-            drpprogram.DataTextField = "course_name";
-            drpprogram.DataValueField = "course_name";
-            drpprogram.DataBind();
-            drpprogram.Items.Insert(0, "");
+            drpCurriculum.DataSource = DBConnection.GetDataTable("select distinct program_curriculum from timetable_course ");
+            drpCurriculum.DataTextField = "program_curriculum";
+            drpCurriculum.DataValueField = "program_curriculum";
+            drpCurriculum.DataBind();
+            drpCurriculum.Items.Insert(0, "");
         }
         protected void drpprogram_SelectedIndexChanged(object sender, EventArgs e)
         {
-            drpYear.DataSource = DBConnection.GetDataTable("select distinct course_academic_year from timetable_course where course_name='" + drpprogram.SelectedItem.ToString() + "'");
+            drpYear.DataSource = DBConnection.GetDataTable("select distinct course_academic_year from timetable_course where program_curriculum='" + drpCurriculum.SelectedItem.ToString() + "'and course_name='" + drpprogram.SelectedItem.ToString() + "' ");
             drpYear.DataTextField = "course_academic_year";
             drpYear.DataValueField = "course_academic_year";
             drpYear.DataBind();
             drpYear.Items.Insert(0, "");
         }
-
-        
-
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-
-            
-            display();
-       data_cources.Visible = true;
-       datastud.Visible = false;
-            
-            
-        }
-
-      
 
        
 
@@ -95,30 +60,35 @@ namespace winCBCS.incharge
             }
         }
 
-        protected void btnStud_Click(object sender, EventArgs e)
+
+        protected void drpCurriculum_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
-            display1();
-            datastud.Visible = true;
-            data_cources.Visible = false;
-            
+            drpprogram.DataSource = DBConnection.GetDataTable("select distinct course_name from timetable_course where program_curriculum='" + drpCurriculum.SelectedItem.ToString() + "' ");
+            drpprogram.DataTextField = "course_name";
+            drpprogram.DataValueField = "course_name";
+            drpprogram.DataBind();
+            drpprogram.Items.Insert(0, "");
         }
 
-        public void display1()//student
+        protected void drpsem_SelectedIndexChanged1(object sender, EventArgs e)
         {
 
+        }
 
-            try
-            {
-                datastud.DataSource = DBConnection.GetDataTable("SELECT timetable_student.student_name,sum(timetable_subject.subject_credit) as credits FROM timetable_subject,timetable_choice, timetable_student where timetable_subject.subject_id=timetable_choice.choice_subjectid and timetable_student.student_id=timetable_choice.choice_studid group by timetable_student.student_name");
-                datastud.DataBind();
-            }
-            catch (Exception)
-            {
+        protected void drpYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            drpsem.DataSource = DBConnection.GetDataTable("select distinct course_academic_sem from timetable_course where program_curriculum='" + drpCurriculum.SelectedItem.ToString() + "'and course_name='" + drpprogram.SelectedItem.ToString() + "' and course_academic_year='" + drpYear.SelectedItem.ToString() + "' ");
+            drpsem.DataTextField = "course_academic_sem";
+            drpsem.DataValueField = "course_academic_sem";
+            drpsem.DataBind();
+            drpsem.Items.Insert(0, "");
+        }
 
-            }
-            
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
 
+            timetable.DataSource = DBConnection.GetDataTable("SELECT * FROM timetable_dept where  semester like '" + drpsem.SelectedItem + "' order by `day` ");
+            timetable.DataBind();
         }
     }
 }

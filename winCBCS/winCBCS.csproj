@@ -87,6 +87,8 @@
     <Content Include="incharge\incharge_profile.aspx" />
     <Content Include="incharge\facultytimetable.aspx" />
     <Content Include="incharge\studenttimetable.aspx" />
+    <Content Include="incharge\course_wise.aspx" />
+    <Content Include="incharge\sem_wise_summery.aspx" />
     <Content Include="student\change-pass-student.aspx" />
     <Content Include="student\choose-subject.aspx" />
     <Content Include="student\edit-student.aspx" />
@@ -235,6 +237,20 @@
     <Compile Include="incharge\studenttimetable.aspx.designer.cs">
       <DependentUpon>studenttimetable.aspx</DependentUpon>
     </Compile>
+    <Compile Include="incharge\course_wise.aspx.cs">
+      <DependentUpon>course_wise.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="incharge\course_wise.aspx.designer.cs">
+      <DependentUpon>course_wise.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="incharge\sem_wise_summery.aspx.cs">
+      <DependentUpon>sem_wise_summery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="incharge\sem_wise_summery.aspx.designer.cs">
+      <DependentUpon>sem_wise_summery.aspx</DependentUpon>
+    </Compile>
     <Compile Include="population\Faculty.cs" />
     <Compile Include="population\Strudent.cs" />
     <Compile Include="population\Subject.cs" />
@@ -367,7 +383,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50072</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
